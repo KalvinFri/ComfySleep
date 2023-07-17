@@ -8,26 +8,30 @@ import Slider from '@react-native-community/slider';
 
 const Slidercomp = () => {
   const [sliderValue, setSliderValue] = useState(0);
+  const [consoleText, setConsoleText] = useState('');
+  
+  const HandleSliderChange = (value) => {
+    setSliderValue(value);
+    console.log('Slider Value:', value);
+  }
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
         {/*Text to show slider value*/}
         <Text style={{color: 'black'}}>
-           Value of slider is : {sliderValue}
+          Value of slider is: {sliderValue}
         </Text>
 
-        {/*Slider with max, min, step and initial value*/}
+        {/*Slider with max, min, step, and initial value*/}
         <Slider
           maximumValue={100}
-          minimumValue={0}
+          minimumValue={1}
           minimumTrackTintColor="pink"
           maximumTrackTintColor="#000000"
           step={1}
           value={sliderValue}
-          onValueChange={
-            (sliderValue) => setSliderValue(sliderValue)
-          }
+          onValueChange={HandleSliderChange}
         />
       </View>
     </SafeAreaView>

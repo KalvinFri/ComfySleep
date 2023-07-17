@@ -3,11 +3,10 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import Slidercomp from "../../components/Slider";
 
-const Home = () => {
+const HomeScreen = () => {
   return (
-<View >
+<View>
   <Slidercomp />
-  
 </View>
   );
 }
@@ -22,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default HomeScreen;
