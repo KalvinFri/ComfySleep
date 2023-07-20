@@ -4,6 +4,7 @@ import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
 
 //import all the components we are going to use
 import Slider from '@react-native-community/slider';
+import CircleSlider from "react-native-circle-slider";
 // import { CircularSlider } from 'react-native-react-native-rounded-slider';
 
 const Slidercomp = () => {
@@ -40,7 +41,17 @@ return (
         </Text>
 
         {/*Slider with max, min, step, and initial value*/}
-        <Slider
+      <CircleSlider 
+        value={1}
+        min={1}
+        max={100}
+        strokeWidth={20}
+        strokeColor={'#000'}
+        meterColor={'#fff'}
+        // onValueChange={HandleSliderChange}
+      />
+
+        {/* <Slider
           maximumValue={100}
           minimumValue={1}
           minimumTrackTintColor="#1aa6e5"
@@ -48,21 +59,7 @@ return (
           step={1}
           value={sliderValue}
           onValueChange={HandleSliderChange}
-          />
-
-        {/* <CircularSlider
-        onChange={HandleSliderChange}
-        value={sliderValue}
-        size={200} 
-        min={1}
-        max={100}
-        trackWidth={10}
-        trackColor={"#6df0fc"}
-        thumbColor={"#6df0fc"}
-        thumbWidth={15}
-        steps={1}
-        element={<Inner>{sliderValue}</Inner>}
-      /> */}
+          /> */}
         <SaveButton />
       </View>
     </SafeAreaView>
@@ -86,12 +83,13 @@ const styles = StyleSheet.create({
     lineHeight: 'normal',
 //Spacing
     position: 'absolute',
-    marginTop: '125px',
-    marginLeft:'155px',
+    marginTop: '0px',
+    marginLeft:'135px',
   },
 
   button1: {
 //Font
+  position: 'absolute',
   color: '#000',
   fontFamily: 'Inter',
   fontSize: '20px',
@@ -101,9 +99,9 @@ const styles = StyleSheet.create({
 //Spacing
     position:'absolute',
     marginTop: "800px",
-    marginLeft: '5px',
-    paddingLeft: '150px',
-    paddingRight: '150px',
+    marginLeft: '80px',
+    paddingLeft: '50px',
+    paddingRight: '50px',
     paddingTop: '10px',
     paddingBottom: '10px',
   },
