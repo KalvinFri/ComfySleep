@@ -1,22 +1,10 @@
 //import React in our code
 import React, {useState} from 'react';
-import { CircularSlider } from 'react-native-elements-universe';
 import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
 
 //import all the components we are going to use
 import Slider from '@react-native-community/slider';
-
-// const SaveButton = () => {
-//   const [savedValue, setSavedValue] = useState(0);
-
-
-
-//   return (
-//   <button>
-//     Saved
-//   </button>
-//   )
-// }
+// import { CircularSlider } from 'react-native-react-native-rounded-slider';
 
 const Slidercomp = () => {
   const [sliderValue, setSliderValue] = useState(1);
@@ -30,7 +18,8 @@ const Slidercomp = () => {
       console.log('Saved Value:', savedValue);
     }
 
-     return (
+
+return (
     <button style={styles.button1} onClick={() => SaveButtonClick()}>
       Save
     </button>
@@ -61,19 +50,19 @@ const Slidercomp = () => {
           onValueChange={HandleSliderChange}
           />
 
-        {/* <CircularSlider 
-        maximumValue={100}
-        minimumValue={1}
-        maxAngle={90}
-        trackRadius={90}
-        thumbRadius={5}
-        trackWidth={2}
-        step={1}
-        trackColor={"blue"}
-        thumbColor={"blue"}
-        value={sliderValue}
+        {/* <CircularSlider
         onChange={HandleSliderChange}
-        /> */}
+        value={sliderValue}
+        size={200} 
+        min={1}
+        max={100}
+        trackWidth={10}
+        trackColor={"#6df0fc"}
+        thumbColor={"#6df0fc"}
+        thumbWidth={15}
+        steps={1}
+        element={<Inner>{sliderValue}</Inner>}
+      /> */}
         <SaveButton />
       </View>
     </SafeAreaView>

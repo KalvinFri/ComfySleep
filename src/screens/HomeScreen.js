@@ -1,6 +1,6 @@
 // Imports
 import React from "react";
-import { StyleSheet, View, Text, Pressable, Image } from "react-native";
+import { StyleSheet, View, Text, Pressable, Image, Slider } from "react-native";
 import Slidercomp from "../components/Slider";
 import { useNavigation } from "@react-navigation/native";
 import HorizontalLine from "../components/Line";
@@ -14,16 +14,20 @@ const ToSaveScreen = () => {
   console.log("Loading LoadScreen");
   navigation.navigate("LoadScreen");
 };
-
 const ToHomeScreen = () => {
     console.log("Loading HomeScreen");
     navigation.navigate("Home");
+};
+const ToProfileScreen = () => {
+  console.log("Loading ProfileScreen");
+  navigation.navigate("Profile");
 };
   return (
 
 <View style={styles.container}>
   <Text style={styles.RemoteText}> Remote </Text>
   <View style={styles.Slidercomp}>
+    {/* <Slidercomp /> */}
     <Slidercomp />
   </View>
 <View>
@@ -39,6 +43,10 @@ const ToHomeScreen = () => {
 
       <Pressable onPress={ToHomeScreen}>
         <Image style={styles.HomeScreenImage} source={{uri: 'data:image/webp;base64,UklGRgoCAABXRUJQVlA4WAoAAAAQAAAAqgAAqgAAQUxQSIQBAAABJyAQSOFmFxERg+zWtttWulecAgiIBTioABpgAabu6b8pSfZNk75eRP8ngNzeBHhQui8cByfTcT5yqbheU5kfgBO54dMtEfkIJY0XPh9ZVHzbkti/AqfQ8f1IQRRQEpjQHByuQreFEyUswTq0R6wqalhDTRhyoBssWyAxQQnzgu2IUmHdgkwzcIgO+xFCHKAEmPA42F2Fz+ZOnGBx1uF1+KriBsXVhGN2dIPn5khcobjp8D28VHhvTqY7sIsO/5sLCYDiYCLiYLOKmM1sD4LFqCPqsKkSBsVkIjAb3BC5GUgoFLWO2EOrIvqqNMOBVTribyqSAIrCCxkO/qoix/bVngT4i44sx2dV0kD5aCJR/qAi0/aBpIJy0ZHrOKvIdj2Z6YCJqCLfRkQzITARMi50S2mjd0qgPSdOakHOJalfPzhYSHH/8d9/jLLntMyc+J3SoFtKjUgyKkQzIyKqZqT5tmpERNNoU7lZ8YHEpqiQ2BQ6rWIxSLebrHT90NtYie5620JHVlA4IGAAAACwCQCdASqrAKsAPt1utFSopiUjIEgBEBuJaW7hdgEbQBPa9FXCDIIaqk122i4QZBDVUmu20XCDIIaqk122i4QZBDVUmu20XCDIIaqk122i4QZBDVUfgAD+/0T0AAAAAAA='}}/>
+      </Pressable>
+
+      <Pressable onPress={ToProfileScreen}>
+      <Image style={styles.ProfileScreenImage} source={{uri: 'data:image/webp;base64,UklGRvQBAABXRUJQVlA4WAoAAAAQAAAArwAArwAAQUxQSG4BAAABJyAQSOFmFxERg8QGdOO2kuQMIMAaQGA1gF1ogEji/kvlIvnY8x+I6P8EhP8frkREyZ+6+G5Pzpz85O7K4KeLIye/uLtx8MubE3m91qMPgwWLC5lFowdDpjiQWTjiXaUueEuqw1UWT2hDrqAtuQ6WWTFiHRob1lXjgjU1GharfkqqTvqMXHUuX6mhU5CmTvsOuupcvlKHzoZUdRJS1olIQSdAT42GNTQK1qGxYVWNhBWWXA/gQ66gHXIbWpAL8EOq4FWphBeWTA8OHjKbB2FJ9OBilog+hPO1PXg5X2nBzbye69GPkNczPQZX3x+9BW8z3VAMfz/ORETRGaLFT3YiJ2iyYCM8YnHCIlYlnLpYuSeQdzb4BjHZZLOXFxvt0VhebLZHU3mx4R4tTTbdDJ1sfDdT2Xyysux1IycD7iYyQ0YLA6NYYFADB8qmN1GaWmbYqHXgbFoDp2hNnKbFwEoZKepUpPR3s0zAUed/egFWUDggYAAAALAJAJ0BKrAAsAA+3W60VKimJSMgSAEQG4lpbuF2ARtAE9r0VcIMghqqTXbaLhBkENVSa7bRcIMghqqTXbaLhBkENVSa7bRcIMghqqTXbaLhBkENVR+AAP7/RPQAAAAAAA=='}}/>
       </Pressable>
 </View>
 {/* Line at Bottom */}
@@ -81,8 +89,8 @@ const styles = StyleSheet.create({
 
   SavedScreenImage: {
     position: 'absolute',
-    width: '50px',
-    height: '50px',
+    width: '49px',
+    height: '49px',
     resizeMode: 'stretch',
     marginTop:'477px',
     marginLeft:'20px',
@@ -90,11 +98,20 @@ const styles = StyleSheet.create({
 
   HomeScreenImage: {
     position: 'absolute',
-    width: '50px',
-    height: '50px',
+    width: '42px',
+    height: '42px',
     resizeMode: 'stretch',
     marginTop:'477px',
     marginLeft: '175px',
+  },
+
+  ProfileScreenImage: {
+    position: 'absolute',
+    width: '52px',
+    height: '52px',
+    resizeMode: 'stretch',
+    marginTop:'477px',
+    marginLeft: '315px',
   },
 
   HomeScreenBottomLine: {
