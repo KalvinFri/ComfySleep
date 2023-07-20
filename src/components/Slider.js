@@ -60,17 +60,19 @@ const Slidercomp = () => {
           value={sliderValue}
           onValueChange={HandleSliderChange}
           />
-        {/* <CircularSlider
+
+        {/* <CircularSlider 
+        maximumValue={100}
+        minimumValue={1}
+        maxAngle={90}
+        trackRadius={90}
+        thumbRadius={5}
+        trackWidth={2}
+        step={1}
+        trackColor={"blue"}
+        thumbColor={"blue"}
         value={sliderValue}
         onChange={HandleSliderChange}
-        size={300} 
-        min={1}
-        max={100}
-        trackWidth={7}
-        trackColor={"green"}
-        thumbColor={"blue"}
-        thumbWidth={15}
-        steps={1}
         /> */}
         <SaveButton />
       </View>

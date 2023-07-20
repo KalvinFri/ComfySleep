@@ -24,7 +24,7 @@ const LoadScreen = () => {
       };
 
 return(
-<View>
+<View style={styles.container1}>
 
 {/* Saved & Recommended Buttons */}
  <View style={styles.SavedButtons}>
@@ -35,13 +35,13 @@ return(
 
 {/* Recommendation button */}
     <Pressable style={styles.RecButton} onPress={ButtonPress2}>
-        <Text>Recommended</Text>
+        <Text style={styles.RecText}>Recommended</Text>
     </Pressable>
  </View>
 
 {/* List Of Text */}
  <View style={styles.SavedOptions}>
-    <Text style={styles.Option1}> 
+    <Text style={styles.Option1}>
         #1 Name Number
     </Text>
 
@@ -51,6 +51,14 @@ return(
 
     <Text style={styles.Option3}>
         #3 Name Number
+    </Text>
+
+    <Text style={styles.Option4}>
+        #4 Name Number
+    </Text>
+
+    <Text style={styles.Option5}>
+        #5 Name Number
     </Text>
  </View>
  {/*Navigation Bar*/}
@@ -77,13 +85,15 @@ const styles = StyleSheet.create({
       flex: 1,
       padding: 20,
       justifyContent: 'center',
-      backgroundColor: '#ecf0f1',
     },
+    container1: {
+        backgroundColor: '#baedfd',
+      },
 
 // Buttons
     SavedButtons: {
         position:'absolute',
-        marginTop:'50px',
+        marginTop:'25px',
         marginBottom:'726px',
     },
 
@@ -91,70 +101,72 @@ const styles = StyleSheet.create({
         position: 'absolute',
         marginLeft:'40px',
         marginRight:'200px',
-        padding:'11px',
-        backgroundColor:'#D9D9D9',
 
     },
 
     SaveText: {
-
+        fontSize: '25px',
+        fontWeight: '500',
     },
 
     RecButton: {
         //Spacing
-        marginLeft: '230px',
+        marginLeft: '200px',
         marginRight: '40px',
-        padding: '11px' ,
-        backgroundColor:'#D9D9D9',
+    },
+
+    RecText: {
+        fontSize: '25px',
+        fontWeight: '500',
     },
 
 // Text Options
     SavedOptions: {
     // Font
         position:'absolute',
-        color: '#000',
         fontFamily: 'Inter',
         fontSize: '20px',
-        fontStyle: 'normal',
         fontWeight: '500',
-        lineHeight: 'normal',
     // Color
-        backgroundColor: '#D9D9D9',
     // Margin
         marginTop: '100px',
         marginLeft: '20px',
         marginRight: '20px',
+        marginBottom: '500px',
     },
 
     Option1: {
     // Font
-        color: '#000',
-        fontFamily: 'Inter',
-        fontSize: '20px',
-        fontStyle: 'normal',
-        fontWeight: '500',
-        lineHeight: 'normal',
-    // Padding
-        display: 'flex',
-        padding: '11px',
-        alignItems: 'flexStart',
-        gap: '8px',
-        backgrounColor: '#D9D9D9',
-    // Spacing
+    color: '#000',
+    fontFamily: 'Inter',
+    fontSize: '20px',
+    fontStyle: 'normal',
+    fontWeight: '500',
+// Box
+    display: 'flex',
+    width: '350px',
+    height: '55px',
+    gap: '10px',
+    borderRadius: '15px',
+    backgroundColor: '#D9D9D9',
     },
+
     Option2: {
     // Font
-        color: '#000',
-        fontFamily: 'Inter',
-        fontSize: '20px',
-        fontStyle: 'normal',
-        fontWeight: '500',
-        lineHeight: 'normal',
-    // Padding
-        padding: '11px',
-        marginTop: '50px',
-        marginBottom: '477px',
-        backgrounColor: '#D9D9D9',
+    color: '#000',
+    fontFamily: 'Inter',
+    fontSize: '20px',
+    fontStyle: 'normal',
+    fontWeight: '500',
+// Box
+    display: 'flex',
+    width: '350px',
+    height: '55px',
+    gap: '10px',
+    borderRadius: '15px',
+    backgroundColor: '#D9D9D9',
+    marginTop: '25px',
+     
     },
 
     Option3: {
@@ -164,14 +176,49 @@ const styles = StyleSheet.create({
         fontSize: '20px',
         fontStyle: 'normal',
         fontWeight: '500',
-        lineHeight: 'normal',
-    // Padding
-        padding: '11px',
-        marginTop: '100px',
-        marginBottom: '450px',
+    // Box
+        display: 'flex',
+        width: '350px',
+        height: '55px',
+        gap: '10px',
+        borderRadius: '15px',
         backgroundColor: '#D9D9D9',
-
+        marginTop: '25px',
     },
+
+    Option4: {
+        // Font
+            color: '#000',
+            fontFamily: 'Inter',
+            fontSize: '20px',
+            fontStyle: 'normal',
+            fontWeight: '500',
+        // Box
+            display: 'flex',
+            width: '350px',
+            height: '55px',
+            gap: '10px',
+            borderRadius: '15px',
+            backgroundColor: '#D9D9D9',
+            marginTop: '25px',
+        },
+
+    Option5: {
+            // Font
+            color: '#000',
+            fontFamily: 'Inter',
+            fontSize: '20px',
+            fontStyle: 'normal',
+            fontWeight: '500',
+            // Box
+            display: 'flex',
+            width: '350px',
+            height: '55px',
+            gap: '10px',
+            borderRadius: '15px',
+            backgroundColor: '#D9D9D9',
+            marginTop: '25px',
+        },
 
 // Navigation bar thingy
   SavedScreenImage: {
