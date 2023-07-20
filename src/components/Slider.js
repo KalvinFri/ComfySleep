@@ -1,9 +1,9 @@
 //import React in our code
 import React, {useState} from 'react';
-
-//import all the components we are going to use
+import { CircularSlider } from 'react-native-elements-universe';
 import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
 
+//import all the components we are going to use
 import Slider from '@react-native-community/slider';
 
 // const SaveButton = () => {
@@ -46,8 +46,8 @@ const Slidercomp = () => {
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
         {/*Text to show slider value*/}
-        <Text style={{color: 'black'}}>
-          Value of slider is: {sliderValue}
+        <Text style={styles.SliderValueText}>
+        {sliderValue}
         </Text>
 
         {/*Slider with max, min, step, and initial value*/}
@@ -60,6 +60,18 @@ const Slidercomp = () => {
           value={sliderValue}
           onValueChange={HandleSliderChange}
           />
+        {/* <CircularSlider
+        value={sliderValue}
+        onChange={HandleSliderChange}
+        size={300} 
+        min={1}
+        max={100}
+        trackWidth={7}
+        trackColor={"green"}
+        thumbColor={"blue"}
+        thumbWidth={15}
+        steps={1}
+        /> */}
         <SaveButton />
       </View>
     </SafeAreaView>
@@ -71,11 +83,38 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
+  },
+
+  SliderValueText: {
+// Font
+    color: '#000',
+    fontFamily: 'Inter',
+    fontSize: '50px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: 'normal',
+//Spacing
+    position: 'absolute',
+    marginTop: '125px',
+    marginLeft:'155px',
   },
 
   button1: {
-    marginTop: "50px"
+//Font
+  color: '#000',
+  fontFamily: 'Inter',
+  fontSize: '20px',
+  fontStyle: 'normal',
+  fontWeight: '700',
+  lineHeight: 'normal',
+//Spacing
+    position:'absolute',
+    marginTop: "800px",
+    marginLeft: '5px',
+    paddingLeft: '150px',
+    paddingRight: '150px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
   },
 
   SliderColor: {
