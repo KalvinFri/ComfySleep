@@ -59,7 +59,7 @@ const Slidercomp = () => {
           step={1}
           value={sliderValue}
           onValueChange={HandleSliderChange}
-        />
+          />
         <SaveButton />
       </View>
     </SafeAreaView>
@@ -76,10 +76,10 @@ const styles = StyleSheet.create({
 
   button1: {
     marginTop: "50px"
-  }
+  },
+
+  SliderColor: {
+  },
 });
 
 export default Slidercomp;
-// export {
-//   Slidercomp, SaveButton
-// }
