@@ -1,11 +1,10 @@
 // Imports
 import React from "react";
 import { StyleSheet, View, Text, Pressable, Image, Slider } from "react-native";
-import Slidercomp from "../components/Slider";
+import Slidercomp from "../components/Slider/Slider";
 import { useNavigation } from "@react-navigation/native";
 import HorizontalLine from "../components/Line";
-import CircleSlider from "react-native-circle-slider";
-
+import CircularProgress from 'react-native-circular-progress-indicator';
 
 
 const HomeScreen = () => {
@@ -14,7 +13,6 @@ const HomeScreen = () => {
 <View style={styles.container}>
   <Text style={styles.RemoteText}> Home </Text>
   <View style={styles.Slidercomp}>
-    {/* <Slidercomp /> */}
     <Slidercomp />
   </View>
 <View>
@@ -23,6 +21,15 @@ const HomeScreen = () => {
 
 {/* Line at Bottom */}
 <View style={styles.HomeScreenBottomLine}>
+
+<CircularProgress
+  value={90}
+  inActiveStrokeColor={'#2ecc71'}
+  inActiveStrokeOpacity={0.2}
+  progressValueColor={'#fff'}
+  valueSuffix={'%'}
+  onAnimationComplete={() => { alert('callback') }}
+/>
     <HorizontalLine />
       {/* <View style={styles.HomeScreenBottomLine2}>
         <HorizontalLine />

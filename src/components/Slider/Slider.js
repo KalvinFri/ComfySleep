@@ -1,10 +1,11 @@
 //import React in our code
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {View, Text, SafeAreaView, StyleSheet, Button} from 'react-native';
 
 //import all the components we are going to use
 import Slider from '@react-native-community/slider';
 import CircleSlider from "react-native-circle-slider";
+import CircularProgress from 'react-native-circular-progress-indicator';
 // import { CircularSlider } from 'react-native-react-native-rounded-slider';
 
 const Slidercomp = () => {
@@ -21,9 +22,9 @@ const Slidercomp = () => {
 
 
 return (
-    <button style={styles.button1} onClick={() => SaveButtonClick()}>
-      Save
-    </button>
+    <Button style={styles.button1} onClick={() => SaveButtonClick()}>
+      <Text>Save</Text>
+    </Button>
     )
   }
 
@@ -40,16 +41,15 @@ return (
         {sliderValue}
         </Text>
 
-        {/*Slider with max, min, step, and initial value*/}
-      <CircleSlider 
+      {/* <CircleSlider 
         value={1}
         min={1}
         max={100}
         strokeWidth={20}
         strokeColor={'#000'}
         meterColor={'#fff'}
-        // onValueChange={HandleSliderChange}
-      />
+        onValueChange={HandleSliderChange}
+      /> */}
 
         {/* <Slider
           maximumValue={100}
@@ -60,6 +60,13 @@ return (
           value={sliderValue}
           onValueChange={HandleSliderChange}
           /> */}
+
+
+
+
+
+
+
         <SaveButton />
       </View>
     </SafeAreaView>
@@ -92,7 +99,7 @@ const styles = StyleSheet.create({
   position: 'absolute',
   color: '#000',
   fontFamily: 'Inter',
-  fontSize: '20px',
+  fontSize: 20,
   fontStyle: 'normal',
   fontWeight: '700',
   lineHeight: 'normal',

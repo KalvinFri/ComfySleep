@@ -22,7 +22,7 @@ const Slidercomp = () => {
 
 return (
     <button style={styles.button1} onClick={() => SaveButtonClick()}>
-      Save
+      <Text>Save</Text>
     </button>
     )
   }
