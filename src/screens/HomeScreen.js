@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
 
   HomeScreenBottomLine: {
-    marginTop: '700px',
+    marginTop: '668px',
   },
   // HomeScreenBottomLine2: {
   //   marginTop: '630px',

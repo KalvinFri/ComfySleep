@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
         },
 
   LoadScreenBottomLine: {
-    marginTop: '700px',
+    marginTop: '668px',
   }
 });
 

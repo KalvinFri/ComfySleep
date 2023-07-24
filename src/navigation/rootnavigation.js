@@ -13,6 +13,7 @@ export default function RootNavigation() {
         <Tab.Navigator style={styles.NavBar}
             initialRouteName="Home"
             screenOptions={({ route }) => ({
+                tabBarStyle: { backgroundColor: '#baedfd', height: '80px' },
                 tabBarIcon: ({ color, size }) => {
                     let iconName;
                     if (route.name === 'Home') {
@@ -22,7 +23,7 @@ export default function RootNavigation() {
                     } else if (route.name === 'Profile') {
                         iconName = 'user'; // Change this to the name of the icon you want to use for the Profile tab
                     }
-                    return <Icon type="font-awesome" name={iconName} size={size} color={color} />;
+                    return <Icon type="font-awesome" name={iconName} size={'40px'} color={color} />;
                 },
             })}
             tabBarOptions={{
