@@ -27,7 +27,7 @@ export default function RootNavigation() {
             })}
             tabBarOptions={{
                 activeTintColor: 'blue', // Change the color for the active tab
-                inactiveTintColor: 'gray', // Change the color for the inactive tabs
+                inactiveTintColor: 'Black', // Change the color for the inactive tabs
             }}
         >
             <Tab.Screen name="LoadScreen" component={LoadScreen} />

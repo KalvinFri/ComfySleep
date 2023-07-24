@@ -2,14 +2,6 @@ import { StyleSheet, View, Text, Pressable, Image} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import HorizontalLine from "../components/Line";
 
-const ButtonPress1 = () => {
-    console.log('Pressed Save');
-}
-
-const ButtonPress2 = () => {
-    console.log('Pressed Recommended');
-}
-
 const LoadScreen = () => {
 
 return(
@@ -17,15 +9,7 @@ return(
 
 {/* Saved & Recommended Buttons */}
  <View style={styles.SavedButtons}>
-{/* Saved Button */}
-    <Pressable style={styles.SaveButton} onPress={ButtonPress1}>
-      <Text style={styles.SaveText}>Saved</Text>
-    </Pressable>
-
-{/* Recommendation button */}
-    <Pressable style={styles.RecButton} onPress={ButtonPress2}>
-        <Text style={styles.RecText}>Recommended</Text>
-    </Pressable>
+    <Text style={styles.SaveText}>Saved</Text>
  </View>
 
 {/* List Of Text */}
@@ -50,9 +34,11 @@ return(
         #5 Name Number
     </Text>
  </View>
-<View style={styles.LoadScreenBottomLine}>
-<HorizontalLine />
-</View>
+
+{/* Bar at bottom */}
+    <View style={styles.LoadScreenBottomLine}>
+        <HorizontalLine />
+    </View>
 </View>
 
 // Fix so i can show more numbers
@@ -70,33 +56,10 @@ const styles = StyleSheet.create({
       },
 
 // Buttons
-    SavedButtons: {
-        position:'absolute',
-        marginTop:'25px',
-        marginBottom:'726px',
-    },
-
-    SaveButton: {
-        position: 'absolute',
-        marginLeft:'40px',
-        marginRight:'200px',
-
-    },
-
     SaveText: {
         fontSize: '25px',
         fontWeight: '500',
-    },
-
-    RecButton: {
-        //Spacing
-        marginLeft: '200px',
-        marginRight: '40px',
-    },
-
-    RecText: {
-        fontSize: '25px',
-        fontWeight: '500',
+        marginLeft: '150px',
     },
 
 // Text Options
@@ -200,7 +163,7 @@ const styles = StyleSheet.create({
         },
 
   LoadScreenBottomLine: {
-    marginTop: '729px',
+    marginTop: '700px',
   }
 });
 
