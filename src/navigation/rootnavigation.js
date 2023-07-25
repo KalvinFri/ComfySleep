@@ -3,17 +3,19 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
 import LoadScreen from "../screens/LoadScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import GradientComponentBG from '../components/PageComponents/BGGradient';
 import { Icon } from 'react-native-elements';
 import { StyleSheet, View } from "react-native";
+
 const Tab = createBottomTabNavigator();
 
 export default function RootNavigation() {
     return (
 
-        <Tab.Navigator style={styles.NavBar}
+        <Tab.Navigator
             initialRouteName="Home"
             screenOptions={({ route }) => ({
-                tabBarStyle: { backgroundColor: '#baedfd', height: '80px' },
+                tabBarStyle: { backgroundColor: '#CD6FFE', height: 80 },
                 tabBarIcon: ({ color, size }) => {
                     let iconName;
                     if (route.name === 'Home') {
@@ -23,12 +25,12 @@ export default function RootNavigation() {
                     } else if (route.name === 'Profile') {
                         iconName = 'user'; // Change this to the name of the icon you want to use for the Profile tab
                     }
-                    return <Icon type="font-awesome" name={iconName} size={'40px'} color={color} />;
+                    return <Icon type="font-awesome" name={iconName} size={40} color={color}/>;
                 },
             })}
             tabBarOptions={{
-                activeTintColor: 'blue', // Change the color for the active tab
-                inactiveTintColor: 'Black', // Change the color for the inactive tabs
+                activeTintColor: '#000', // Change the color for the active tab
+                inactiveTintColor: '#FFF', // Change the color for the inactive tabs
             }}
         >
             <Tab.Screen name="LoadScreen" component={LoadScreen} />
@@ -38,9 +40,3 @@ export default function RootNavigation() {
 
     )
 }
-
-const styles = StyleSheet.create({
-    NavBar: {
-        height: '10px',
-    },
-})

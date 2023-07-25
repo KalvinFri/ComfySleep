@@ -1,6 +1,6 @@
 //import React in our code
-import React, {useState} from 'react';
-import {View, Text, SafeAreaView, StyleSheet, Button} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
 
 //import all the components we are going to use
 import Slider from '@react-native-community/slider';
@@ -13,7 +13,7 @@ const Slidercomp = () => {
   const [savedValue, setSavedValue] = useState(null);
 
   const SaveButton = () => {
-  
+
     const SaveButtonClick = () => {
       setSavedValue(sliderValue);
       // Console is behind
@@ -21,10 +21,8 @@ const Slidercomp = () => {
     }
 
 
-return (
-    <Button style={styles.button1} onClick={() => SaveButtonClick()}>
-      <Text>Save</Text>
-    </Button>
+    return (
+      <TouchableOpacity />
     )
   }
 
@@ -34,14 +32,22 @@ return (
   }
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         {/*Text to show slider value*/}
         <Text style={styles.SliderValueText}>
-        {sliderValue}
+          {sliderValue}
         </Text>
-
-      {/* <CircleSlider 
+        <View style={styles.ProgressBar}>
+        <CircularProgress
+          value={90}
+          inActiveStrokeColor={'#2ecc71'}
+          inActiveStrokeOpacity={0.2}
+          progressValueColor={'#fff'}
+          valueSuffix={'%'}
+        />
+        </View>
+        {/* <CircleSlider 
         value={1}
         min={1}
         max={100}
@@ -61,12 +67,6 @@ return (
           onValueChange={HandleSliderChange}
           /> */}
 
-
-
-
-
-
-
         <SaveButton />
       </View>
     </SafeAreaView>
@@ -81,36 +81,20 @@ const styles = StyleSheet.create({
   },
 
   SliderValueText: {
-// Font
+    // Font
     color: '#000',
-    fontFamily: 'Inter',
-    fontSize: '50px',
+    fontSize: 50,
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: 'normal',
-//Spacing
+    //Spacing
     position: 'absolute',
-    marginTop: '0px',
-    marginLeft:'135px',
+    marginTop: 0,
+    marginLeft: 135,
   },
 
-  button1: {
-//Font
-  position: 'absolute',
-  color: '#000',
-  fontFamily: 'Inter',
-  fontSize: 20,
-  fontStyle: 'normal',
-  fontWeight: '700',
-  lineHeight: 'normal',
-//Spacing
-    position:'absolute',
-    marginTop: "800px",
-    marginLeft: '80px',
-    paddingLeft: '50px',
-    paddingRight: '50px',
-    paddingTop: '10px',
-    paddingBottom: '10px',
+  ProgressBar: {
+    marginLeft: 90,
   },
 
   SliderColor: {
