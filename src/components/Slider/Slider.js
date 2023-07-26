@@ -22,7 +22,9 @@ const Slidercomp = () => {
 
 
     return (
-      <TouchableOpacity />
+      <TouchableOpacity style={styles.SaveButton} onPress={SaveButtonClick}>
+      <Text style={styles.SaveButtonText}>Save</Text>
+      </TouchableOpacity>
     )
   }
 
@@ -33,42 +35,17 @@ const Slidercomp = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        {/*Text to show slider value*/}
-        <Text style={styles.SliderValueText}>
-          {sliderValue}
-        </Text>
-        <View style={styles.ProgressBar}>
+      <View style={styles.ProgressBar}>
         <CircularProgress
-          value={90}
-          inActiveStrokeColor={'#2ecc71'}
+          value={sliderValue}
+          inActiveStrokeColor={'#DA5FF9'}
+          activeStrokeColor={'#CD6FFE'}
           inActiveStrokeOpacity={0.2}
           progressValueColor={'#fff'}
           valueSuffix={'%'}
         />
-        </View>
-        {/* <CircleSlider 
-        value={1}
-        min={1}
-        max={100}
-        strokeWidth={20}
-        strokeColor={'#000'}
-        meterColor={'#fff'}
-        onValueChange={HandleSliderChange}
-      /> */}
-
-        {/* <Slider
-          maximumValue={100}
-          minimumValue={1}
-          minimumTrackTintColor="#1aa6e5"
-          maximumTrackTintColor="#000000"
-          step={1}
-          value={sliderValue}
-          onValueChange={HandleSliderChange}
-          /> */}
-
-        <SaveButton />
       </View>
+      <SaveButton />
     </SafeAreaView>
   );
 };
@@ -78,6 +55,25 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
+  },
+
+  SaveButton: {
+    position: 'absolute',
+    marginLeft: 90,
+    marginTop: 500,
+    width: 160,
+    height: 60,
+    paddingTop: 13,
+    paddingLeft: 53,
+    
+    borderRadius: 15,
+  backgroundColor: '#571A66',
+  },
+
+  SaveButtonText: {
+    // fontFamily: 'Shrikhand',
+    fontSize: 25,
+    color: '#FFDEFF',
   },
 
   SliderValueText: {
@@ -94,7 +90,8 @@ const styles = StyleSheet.create({
   },
 
   ProgressBar: {
-    marginLeft: 90,
+    marginLeft: 110,
+    marginTop: 100,
   },
 
   SliderColor: {

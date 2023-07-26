@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import RootNavigation from './src/navigation/rootnavigation'
 import { NavigationContainer } from '@react-navigation/native'
+import GradientComponentBG from './src/components/PageComponents/BGGradient';
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       <NavigationContainer>
         <RootNavigation />
       </NavigationContainer>
+      <GradientComponentBG />
     </View>
   );
 }

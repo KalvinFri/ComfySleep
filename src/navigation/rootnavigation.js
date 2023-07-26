@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
-import LoadScreen from "../screens/LoadScreen";
+import LoadScreen from "../screens/PreferenceScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import GradientComponentBG from '../components/PageComponents/BGGradient';
 import { Icon } from 'react-native-elements';
