@@ -28,19 +28,23 @@ const Slidercomp = () => {
     )
   }
 
-  const HandleSliderChange = (value) => {
-    setSliderValue(value);
-    console.log('Slider Value:', value);
+  const HandleSliderChange = () => {
+    console.log('Slider Value:', sliderValue);
   }
-
+  
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.ProgressBar}>
         <CircularProgress
           value={sliderValue}
+          onAnimationComplete={HandleSliderChange}
           inActiveStrokeColor={'#DA5FF9'}
+          activeStrokeWidth={30}
           activeStrokeColor={'#CD6FFE'}
-          inActiveStrokeOpacity={0.2}
+          inActiveStrokeWidth={30}
+          inActiveStrokeOpacity={0.5}
+          radius={120}
+          maxValue={100}
           progressValueColor={'#fff'}
           valueSuffix={'%'}
         />
@@ -85,13 +89,14 @@ const styles = StyleSheet.create({
     lineHeight: 'normal',
     //Spacing
     position: 'absolute',
-    marginTop: 0,
     marginLeft: 135,
   },
 
   ProgressBar: {
-    marginLeft: 110,
-    marginTop: 100,
+    // marginLeft: 50,
+    // marginTop: 100,
+    left: 50,
+    top: 100,
   },
 
   SliderColor: {

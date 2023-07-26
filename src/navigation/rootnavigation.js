@@ -15,7 +15,7 @@ export default function RootNavigation() {
         <Tab.Navigator
             initialRouteName="Home"
             screenOptions={({ route }) => ({
-                tabBarStyle: { backgroundColor: '#CD6FFE', height: 80 },
+                tabBarStyle: { backgroundColor: '#F2D8FF', height: 80 },
                 tabBarIcon: ({ color, size }) => {
                     let iconName;
                     if (route.name === 'Home') {
@@ -25,11 +25,11 @@ export default function RootNavigation() {
                     } else if (route.name === 'Profile') {
                         iconName = 'user'; // Change this to the name of the icon you want to use for the Profile tab
                     }
-                    return <Icon type="font-awesome" name={iconName} size={40} color={color}/>;
+                    return <Icon type="font-awesome" name={iconName} size={40} color={color} />;
                 },
             })}
             tabBarOptions={{
-                activeTintColor: '#000', // Change the color for the active tab
+                activeTintColor: '#CD6FFE', // Change the color for the active tab
                 inactiveTintColor: '#FFF', // Change the color for the inactive tabs
             }}
         >
