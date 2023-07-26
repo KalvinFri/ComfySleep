@@ -6,7 +6,7 @@ const GradientComponentBG = () => {
   return (
     <LinearGradient
     // Background Linear Gradient
-    colors={['#5B2B74', '#BF67ED', 'transparent']}
+    colors={['#E4ADFF', '#CD6FFE', '#CD6FFE', '#B932FF', 'transparent']}
     style={styles.background}
   />
 
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
-    height: 1500,
+    height: 1000,
     zIndex: -1,
 },
 })

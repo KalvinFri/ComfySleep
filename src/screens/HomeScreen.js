@@ -4,16 +4,25 @@ import { StyleSheet, View, Text, Pressable, Image, Slider } from "react-native";
 import Slidercomp from "../components/Slider/Slider";
 import GradientComponentBG from "../components/PageComponents/BGGradient";
 import { useNavigation } from "@react-navigation/native";
-import HorizontalLine from "../components/PageComponents/Line";
 import CircularProgress from 'react-native-circular-progress-indicator';
 import { LinearGradient } from "expo-linear-gradient";
+import { useFonts } from "expo-font";
+
 
 const HomeScreen = () => {
-  return (
 
+  const [loaded] = useFonts({
+    Shrikhand: require('../assets/fonts/Shrikhand-Regular.ttf')
+  })
+
+  if(!loaded){
+    return null;
+  }
+  
+  return (
     <View style={styles.container}>
 
-      <Text style={styles.RemoteText}> Home </Text>
+      <Text style={styles.HomeText}> Home </Text>
 
 
       {/* Progress Bar */}
@@ -30,7 +39,6 @@ const HomeScreen = () => {
 
       {/* Line at Bottom */}
       <View style={styles.HomeScreenBottomLine}>
-        <HorizontalLine />
       </View>
     <GradientComponentBG />
 </View >
@@ -43,10 +51,13 @@ const styles = StyleSheet.create({
     // backgroundColor: '#baedfd',
   },
 
-  RemoteText: {
+  HomeText: {
     alignItems: 'center',
     marginLeft: 160,
     fontSize: 25,
+    top: 100,
+    fontFamily: 'Shrikhand',
+    color: '#56047C',
   },
 
   Slidercomp: {
@@ -54,13 +65,6 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginLeft: 30,
   },
-
-  HomeScreenBottomLine: {
-    marginTop: 637,
-  },
-  // HomeScreenBottomLine2: {
-  //   marginTop: 630,
-  // },
 });
 
 export default HomeScreen;

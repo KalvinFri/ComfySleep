@@ -1,10 +1,8 @@
 //import React in our code
 import React, { useState } from 'react';
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage'
 //import all the components we are going to use
-import Slider from '@react-native-community/slider';
-import CircleSlider from "react-native-circle-slider";
 import CircularProgress from 'react-native-circular-progress-indicator';
 // import { CircularSlider } from 'react-native-react-native-rounded-slider';
 
@@ -30,6 +28,7 @@ const Slidercomp = () => {
 
   const HandleSliderChange = () => {
     console.log('Slider Value:', sliderValue);
+    AsyncStorage
   }
   
   return (
@@ -38,15 +37,16 @@ const Slidercomp = () => {
         <CircularProgress
           value={sliderValue}
           onAnimationComplete={HandleSliderChange}
-          inActiveStrokeColor={'#DA5FF9'}
+          inActiveStrokeColor={'#571A66'}
           activeStrokeWidth={30}
-          activeStrokeColor={'#CD6FFE'}
+          activeStrokeColor={'#FFDEFF'}
           inActiveStrokeWidth={30}
           inActiveStrokeOpacity={0.5}
           radius={120}
           maxValue={100}
-          progressValueColor={'#fff'}
+          progressValueColor={'#FFF'}
           valueSuffix={'%'}
+          progressValueColor={'#FFDEFF'}
         />
       </View>
       <SaveButton />

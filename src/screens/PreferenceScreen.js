@@ -2,53 +2,56 @@ import { StyleSheet, View, Text, Pressable, Image, TouchableOpacity, Touchable }
 import { useNavigation } from "@react-navigation/native";
 import HorizontalLine from "../components/PageComponents/Line";
 import GradientComponentBG from "../components/PageComponents/BGGradient";
+import { useFonts } from "@expo-google-fonts/shrikhand";
+const PreferenceScreen = () => {
 
-const LoadScreen = () => {
+    const [loaded] = useFonts({
+        Shrikhand: require('../assets/fonts/Shrikhand-Regular.ttf')
+    })
+
+    if (!loaded) {
+        return null;
+    }
 
     return (
         <View style={styles.container1}>
 
             {/* Saved & Recommended Buttons */}
             <View style={styles.SavedButtons}>
-                <Text style={styles.SaveText}>Saved</Text>
+                <Text style={styles.SaveText}>Mattress Preferences</Text>
             </View>
 
             {/* List Of Text */}
             <View style={styles.SavedOptions}>
-                <TouchableOpacity>
-                    <Text style={styles.Option1}>
+                <TouchableOpacity style={styles.Option1}>
+                    <Text style={styles.Option1Text}>
                         Name                                       Number
                     </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <Text style={styles.Option2}>
+                <TouchableOpacity style={styles.Option2}>
+                    <Text style={styles.Option2Text}>
                         Name                                       Number
                     </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <Text style={styles.Option3}>
+                <TouchableOpacity style={styles.Option3}>
+                    <Text style={styles.Option3Text}>
                         Name                                       Number
                     </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <Text style={styles.Option4}>
+                <TouchableOpacity style={styles.Option4}>
+                    <Text style={styles.Option4Text}>
                         Name                                       Number
                     </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <Text style={styles.Option5}>
+                <TouchableOpacity style={styles.Option5}>
+                    <Text style={styles.Option5Text}>
                         Name                                       Number
                     </Text>
                 </TouchableOpacity>
-            </View>
-
-            {/* Bar at bottom */}
-            <View style={styles.LoadScreenBottomLine}>
-                <HorizontalLine />
             </View>
             <GradientComponentBG />
         </View>
@@ -72,7 +75,10 @@ const styles = StyleSheet.create({
     SaveText: {
         fontSize: 25,
         fontWeight: '500',
-        marginLeft: 160,
+        left: 55,
+        marginTop: 100,
+        color: '#571A66',
+        fontFamily: 'Shrikhand',
     },
 
     // Text Options
@@ -82,54 +88,50 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '500',
         // Margin
-        marginTop: 100,
+        marginTop: 200,
         marginLeft: 20,
         marginRight: 20,
         marginBottom: 500,
     },
 
     Option1: {
-        // Font
-        color: '#FFF',
-        fontSize: 20,
-        fontStyle: 'normal',
-        fontWeight: '500',
-        // Box
-        display: 'flex',
         paddingTop: 15,
         paddingLeft: 20,
         width: 350,
         height: 55,
         gap: 10,
+        borderRadius: 15,
         backgroundColor: '#571A66',
+    },
+
+    Option1Text: {
+        // Font
+        color: '#FFF',
+        fontSize: 20,
+        fontStyle: 'normal',
+        fontWeight: '500',
     },
 
     Option2: {
-        // Font
-        color: '#FFF',
-        fontSize: 20,
-        fontStyle: 'normal',
-        fontWeight: '500',
-        // Box
-        display: 'flex',
         paddingTop: 15,
         paddingLeft: 20,
         width: 350,
         height: 55,
         gap: 10,
-        borderRadius: 15,
         backgroundColor: '#571A66',
         marginTop: 25,
+        borderRadius: 15,
+    },
 
+    Option2Text: {
+        // Font
+        color: '#FFF',
+        fontSize: 20,
+        fontStyle: 'normal',
+        fontWeight: '500',
     },
 
     Option3: {
-        // Font
-        color: '#FFF',
-        fontSize: 20,
-        fontStyle: 'normal',
-        fontWeight: '500',
-        // Box
         display: 'flex',
         paddingTop: 15,
         paddingLeft: 20,
@@ -139,47 +141,53 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: '#571A66',
         marginTop: 25,
+    },
+
+    Option3Text: {
+        // Font
+        color: '#FFF',
+        fontSize: 20,
+        fontStyle: 'normal',
+        fontWeight: '500',
     },
 
     Option4: {
-        // Font
-        color: '#FFF',
-        fontSize: 20,
-        fontStyle: 'normal',
-        fontWeight: '500',
-        // Box
-        display: 'flex',
         paddingTop: 15,
         paddingLeft: 20,
         width: 350,
         height: 55,
         gap: 10,
-        borderRadius: 15,
         backgroundColor: '#571A66',
         marginTop: 25,
+        borderRadius: 15,
+    },
+
+    Option4Text: {
+        // Font
+        color: '#FFF',
+        fontSize: 20,
+        fontStyle: 'normal',
+        fontWeight: '500',
     },
 
     Option5: {
-        // Font
-        color: '#FFF',
-        fontSize: 20,
-        fontStyle: 'normal',
-        fontWeight: '500',
-        // Box
-        display: 'flex',
         paddingTop: 15,
         paddingLeft: 20,
         width: 350,
         height: 55,
         gap: 10,
-        borderRadius: 15,
         backgroundColor: '#571A66',
         marginTop: 25,
+        borderRadius: 15,
     },
 
-    LoadScreenBottomLine: {
-        marginTop: 637,
-    }
+    Option5Text: {
+        // Font
+        color: '#FFF',
+        fontSize: 20,
+        fontStyle: 'normal',
+        fontWeight: '500',
+    },
 });
 
-export default LoadScreen;
+export default PreferenceScreen;
