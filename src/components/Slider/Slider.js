@@ -5,6 +5,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 //import all the components we are going to use
 import CircularProgress from 'react-native-circular-progress-indicator';
 // import { CircularSlider } from 'react-native-react-native-rounded-slider';
+import PopupScreen from '../PageComponents/Popup';
+
 
 const Slidercomp = () => {
   const [sliderValue, setSliderValue] = useState(1);
@@ -44,12 +46,12 @@ const Slidercomp = () => {
           inActiveStrokeOpacity={0.5}
           radius={120}
           maxValue={100}
-          progressValueColor={'#FFF'}
           valueSuffix={'%'}
           progressValueColor={'#FFDEFF'}
         />
       </View>
-      <SaveButton />
+             {/* Save button */}
+             <PopupScreen />    
     </SafeAreaView>
   );
 };
