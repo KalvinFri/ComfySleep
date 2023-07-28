@@ -1,26 +1,30 @@
-import * as React from "react";
-import { Button, Pressable, StyleSheet, Text, View, useState, TouchableOpacity } from "react-native";
+import React, { useState, useEffect } from 'react';
+import { Button, Pressable, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import { TextInput } from "react-native";
 import Slidercomp from "../Slider/Slider";
 import HorizontalLine from "./Line";
+import useSliderValue from '../../hooks/useSliderValue';
 
-export const Popup = () => {
+// export const Popup = (props) => {
 
-    const popupclick = () => {
-        setIsModalVisible = false
-    }
+//     const popupclick = () => {
+//         setIsModalVisible = false
+//     }
 
-    return (
-        <TouchableOpacity onPress={popupclick}>
-            <Text>Popup</Text>
-        </TouchableOpacity>
-    )
-}
+//     return (
+//         <TouchableOpacity onPress={popupclick}>
+//             <Text>Popup</Text>
+//         </TouchableOpacity>
+//     )
+// }
 
-const PopupScreen = () => {
+export const PopupScreen = () => {
     const [isModalVisible, setIsModalVisible] = React.useState(false);
     const handleModal = () => setIsModalVisible(() => !isModalVisible);
+
+    // object destructuring
+    const { sliderValue } = useSliderValue()
 
     return (
         <View style={styles.container}>
@@ -37,7 +41,7 @@ const PopupScreen = () => {
             >
 
                 <View style={styles.SaveModal}>
-                    <Text style={styles.CurrentStateText}>Current State: 40</Text>
+                    <Text style={styles.CurrentStateText}>Current Value: {sliderValue}  </Text>
                     <Text style={styles.EnterNameText}>Enter Name</Text>
                     <HorizontalLine style={styles.HorizontalLine1} />
                     <TextInput clearTextOnFocus style={styles.SaveButtonInput} >
@@ -55,6 +59,7 @@ const PopupScreen = () => {
             </Modal>
         </View >
     );
+    
 }
 
 const styles = StyleSheet.create({

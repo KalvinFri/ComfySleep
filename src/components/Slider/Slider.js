@@ -1,17 +1,19 @@
 //import React in our code
-import React, { useState } from 'react';
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 //import all the components we are going to use
 import CircularProgress from 'react-native-circular-progress-indicator';
 // import { CircularSlider } from 'react-native-react-native-rounded-slider';
-import PopupScreen from '../PageComponents/Popup';
 import { color } from 'react-native-reanimated';
+import useSliderValue from '../../hooks/useSliderValue';
+import PopupScreen from '../PageComponents/Popup'
+
 
 
 const Slidercomp = () => {
-  const [sliderValue, setSliderValue] = useState(1);
-  const [savedValue, setSavedValue] = useState(null);
+ const {sliderValue} = useSliderValue()
+ const [savedValue, setSavedValue] = useState(null);
 
   const SaveButton = () => {
 
@@ -20,6 +22,10 @@ const Slidercomp = () => {
       // Console is behind
       console.log('Saved Value:', savedValue);
     }
+
+    console.log(sliderValue)
+
+    
 
 
     // return (
@@ -51,6 +57,9 @@ const Slidercomp = () => {
           progressValueColor={'#FFDEFF'}
         />
       </View>
+      <TextInput>
+
+      </TextInput>
       <Text style={styles.FirmnessScaleText}> Firmness Scale </Text>
       <View style={styles.PopupScreenSliderButton}>
         {/* Save button */}
