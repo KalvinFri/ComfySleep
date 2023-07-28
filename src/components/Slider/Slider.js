@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import CircularProgress from 'react-native-circular-progress-indicator';
 // import { CircularSlider } from 'react-native-react-native-rounded-slider';
 import PopupScreen from '../PageComponents/Popup';
+import { color } from 'react-native-reanimated';
 
 
 const Slidercomp = () => {
@@ -21,18 +22,18 @@ const Slidercomp = () => {
     }
 
 
-    return (
-      <TouchableOpacity style={styles.SaveButton} onPress={SaveButtonClick}>
-      <Text style={styles.SaveButtonText}>Save</Text>
-      </TouchableOpacity>
-    )
+    // return (
+    //   <TouchableOpacity style={styles.SaveButton} onPress={SaveButtonClick}>
+    //     <Text style={styles.SaveButtonText}>Save</Text>
+    //   </TouchableOpacity>
+    // )
   }
 
   const HandleSliderChange = () => {
     console.log('Slider Value:', sliderValue);
     AsyncStorage
   }
-  
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.ProgressBar}>
@@ -50,8 +51,11 @@ const Slidercomp = () => {
           progressValueColor={'#FFDEFF'}
         />
       </View>
-             {/* Save button */}
-             <PopupScreen />    
+      <Text style={styles.FirmnessScaleText}> Firmness Scale </Text>
+      <View style={styles.PopupScreenSliderButton}>
+        {/* Save button */}
+        <PopupScreen />
+      </View>
     </SafeAreaView>
   );
 };
@@ -63,6 +67,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  PopupScreenSliderButton: {
+    left: 53,
+  },
+
+  FirmnessScaleText: {
+    fontSize: 30,
+    top: 125,
+    left: 73,
+    color: '#FFDEFF'
+  },
+
   SaveButton: {
     position: 'absolute',
     marginLeft: 90,
@@ -71,9 +86,9 @@ const styles = StyleSheet.create({
     height: 60,
     paddingTop: 13,
     paddingLeft: 53,
-    
+
     borderRadius: 15,
-  backgroundColor: '#571A66',
+    backgroundColor: '#571A66',
   },
 
   SaveButtonText: {
