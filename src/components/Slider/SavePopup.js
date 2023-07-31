@@ -2,37 +2,37 @@ import React, { useState, useEffect } from 'react';
 import { Button, Pressable, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import { TextInput } from "react-native";
-import Slidercomp from "../Slider/Slider";
-import HorizontalLine from "./Line";
+import Slidercomp from "./Slider";
+import HorizontalLine from "../PageComponents/Line";
 import useSliderValue from '../../hooks/useSliderValue';
+import useSavedSliderValue from '../../hooks/useSavedSliderValue';
 
-// export const Popup = (props) => {
-
-//     const popupclick = () => {
-//         setIsModalVisible = false
-//     }
-
-//     return (
-//         <TouchableOpacity onPress={popupclick}>
-//             <Text>Popup</Text>
-//         </TouchableOpacity>
-//     )
-// }
 
 export const PopupScreen = () => {
     const [isModalVisible, setIsModalVisible] = React.useState(false);
+
     const handleModal = () => setIsModalVisible(() => !isModalVisible);
 
     // object destructuring
     const { sliderValue } = useSliderValue()
+    const { savedSliderValue, setSavedSliderValue } = useSavedSliderValue()
+
+    const SavePreferenceClick = () => {
+
+        setSavedSliderValue(sliderValue);
+        // Console is behind
+        console.log('Saved Value:', savedSliderValue);
+        setIsModalVisible(() => !isModalVisible);
+    }
+
+
 
     return (
         <View style={styles.container}>
             <View style={styles.separator} >
-                <Button
-                    title="Save"
-                    onPress={handleModal}
-                    style={styles.popupButton} />
+                <TouchableOpacity onPress={handleModal} style={styles.popupButton}>
+                    <Text style={styles.SaveModalButtonText}>Save</Text>
+                </TouchableOpacity>
 
             </View>
             <Modal
@@ -49,17 +49,17 @@ export const PopupScreen = () => {
                             Name
                         </Text>
                     </TextInput>
-                        <TouchableOpacity onPress={handleModal} style={styles.CancelModalButton}>
-                            <Text style={styles.CancelModalText}>Cancel</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={handleModal} style={styles.SaveModalButton}>
-                            <Text style={styles.SaveModalText}>Save</Text>
-                        </TouchableOpacity>
+                    <TouchableOpacity onPress={handleModal} style={styles.CancelModalButton}>
+                        <Text style={styles.CancelModalText}>Cancel</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={SavePreferenceClick} style={styles.SaveModalButton}>
+                        <Text style={styles.SaveModalText}>Save</Text>
+                    </TouchableOpacity>
                 </View>
             </Modal>
         </View >
     );
-    
+
 }
 
 const styles = StyleSheet.create({
@@ -75,7 +75,10 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     separator: {
-        position: "relative",
+        //Nothing here
+    },
+
+    popupButton: {
         left: 0,
         marginTop: 108,
         marginVertical: 30,
@@ -86,11 +89,15 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: '#571A66',
         color: "pink",
-
+        color: "#ffdeff",
     },
 
-    popupButton: {
-        color: "#ffdeff",
+    SaveModalButtonText: {
+        alignItems: 'center',
+        color: '#FFDEFF',
+        fontSize: 25,
+        paddingLeft: 53,
+        paddingTop: 1,
     },
 
     SaveModal: {
@@ -114,7 +121,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         color: '#FFDEFF',
         fontSize: 25,
-        marginBottom:15,
+        marginBottom: 15,
     },
 
     EnterNameText: {
@@ -175,7 +182,7 @@ const styles = StyleSheet.create({
 
     HorizontalLine1: {
         top: 800,
-        position:"relative",
+        position: "relative",
     },
 });
 

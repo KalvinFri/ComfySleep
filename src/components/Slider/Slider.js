@@ -7,37 +7,18 @@ import CircularProgress from 'react-native-circular-progress-indicator';
 // import { CircularSlider } from 'react-native-react-native-rounded-slider';
 import { color } from 'react-native-reanimated';
 import useSliderValue from '../../hooks/useSliderValue';
-import PopupScreen from '../PageComponents/Popup'
+import PopupScreen from './SavePopup'
+import CustomValuePopup from './CustomValuePopup';
+import useSavedSliderValue from '../../hooks/useSavedSliderValue';
 
 
 
 const Slidercomp = () => {
- const {sliderValue} = useSliderValue()
- const [savedValue, setSavedValue] = useState(null);
-
-  const SaveButton = () => {
-
-    const SaveButtonClick = () => {
-      setSavedValue(sliderValue);
-      // Console is behind
-      console.log('Saved Value:', savedValue);
-    }
-
-    console.log(sliderValue)
-
-    
-
-
-    // return (
-    //   <TouchableOpacity style={styles.SaveButton} onPress={SaveButtonClick}>
-    //     <Text style={styles.SaveButtonText}>Save</Text>
-    //   </TouchableOpacity>
-    // )
-  }
+ const {sliderValue, setSliderValue} = useSliderValue();
+ const {savedValue, setSavedValue} = useSavedSliderValue();
 
   const HandleSliderChange = () => {
     console.log('Slider Value:', sliderValue);
-    AsyncStorage
   }
 
   return (
@@ -57,14 +38,7 @@ const Slidercomp = () => {
           progressValueColor={'#FFDEFF'}
         />
       </View>
-      <TextInput>
-
-      </TextInput>
       <Text style={styles.FirmnessScaleText}> Firmness Scale </Text>
-      <View style={styles.PopupScreenSliderButton}>
-        {/* Save button */}
-        <PopupScreen />
-      </View>
     </SafeAreaView>
   );
 };
