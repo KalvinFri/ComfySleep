@@ -87,14 +87,13 @@ const styles = StyleSheet.create({
         height: 60,
         paddingTop: 13,
         borderRadius: 15,
-        backgroundColor: '#571A66',
-        color: "pink",
-        color: "#ffdeff",
+        backgroundColor: '#CD6FFE',
+        color: "#FFFFFF",
     },
 
     SaveModalButtonText: {
         alignItems: 'center',
-        color: '#FFDEFF',
+        color: '#FFFFFF',
         fontSize: 25,
         paddingLeft: 53,
         paddingTop: 1,
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
 
     SaveModal: {
         flex: 1,
-        backgroundColor: '#CD6FFE',
+        backgroundColor: '#571A66',
         marginTop: 200,
         marginBottom: 350,
         marginLeft: 35,
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
         top: 30,
         left: 57,
         alignItems: 'center',
-        color: '#FFDEFF',
+        color: '#FFF',
         fontSize: 25,
         marginBottom: 15,
     },
@@ -135,16 +134,16 @@ const styles = StyleSheet.create({
         top: 55,
         left: 60,
         marginRight: 110,
-        color: '#56047C',
+        color: '#FFF',
         backgroundColor: 'FFF',
         fontSize: 25,
         borderWidth: 3,
-        borderColor: "#56047C",
-        borderRadius: 15,
+        borderColor: "#FFF",
+        borderRadius: 10,
     },
 
     CancelModalButton: {
-        backgroundColor: "#571A66",
+        backgroundColor: "#CD6FFE",
         top: 85,
         left: 30,
         width: 100,
@@ -162,7 +161,7 @@ const styles = StyleSheet.create({
     },
 
     SaveModalButton: {
-        backgroundColor: "#571A66",
+        backgroundColor: "#CD6FFE",
         top: 35,
         left: 190,
         height: 50,
@@ -176,11 +175,12 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingTop: 10,
         marginRight: 230,
-        color: '#FFDEFF',
+        color: '#FFF',
         fontSize: 25,
     },
 
     HorizontalLine1: {
+        color: '#FFF',
         top: 800,
         position: "relative",
     },

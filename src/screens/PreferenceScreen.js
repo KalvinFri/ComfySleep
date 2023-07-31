@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         left: 55,
         marginTop: 100,
-        color: '#571A66',
+        color: '#FFFFFF',
         fontFamily: 'Shrikhand',
     },
 
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
         height: 55,
         gap: 10,
         borderRadius: 15,
-        backgroundColor: '#571A66',
+        backgroundColor: '#CD6FFE',
     },
 
     Option1Text: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         width: 350,
         height: 55,
         gap: 10,
-        backgroundColor: '#571A66',
+        backgroundColor: '#CD6FFE',
         marginTop: 25,
         borderRadius: 15,
     },
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
         height: 55,
         gap: 10,
         borderRadius: 15,
-        backgroundColor: '#571A66',
+        backgroundColor: '#CD6FFE',
         marginTop: 25,
     },
 
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
         width: 350,
         height: 55,
         gap: 10,
-        backgroundColor: '#571A66',
+        backgroundColor: '#CD6FFE',
         marginTop: 25,
         borderRadius: 15,
     },
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
         width: 350,
         height: 55,
         gap: 10,
-        backgroundColor: '#571A66',
+        backgroundColor: '#CD6FFE',
         marginTop: 25,
         borderRadius: 15,
     },

@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     top: 100,
     fontFamily: 'Shrikhand',
-    color: '#56047C',
+    color: '#FDF6FF',
   },
 
   Slidercomp: {

@@ -17,7 +17,7 @@ export default function RootNavigation() {
             initialRouteName="Home"
             screenOptions={({ route }) => ({
                 headerShown: false,
-                tabBarStyle: { backgroundColor: '#571A66', height: 80, borderRadius: 15, },
+                tabBarStyle: { backgroundColor: '#CD6FFE', height: 80, borderRadius: 15, },
                 tabBarIcon: ({ color, size }) => {
                     let iconName;
                     if (route.name === 'Home') {
@@ -31,8 +31,8 @@ export default function RootNavigation() {
                 },
             })}
             tabBarOptions={{
-                activeTintColor: '#CD6FFE', // Change the color for the active tab
-                inactiveTintColor: '#FFDEFF', // Change the color for the inactive tabs
+                activeTintColor: '#571A66', // Change the color for the active tab
+                inactiveTintColor: '#FFFFFF', // Change the color for the inactive tabs
                 showLabel: false,
             }}
         >

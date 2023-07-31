@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput } from "react-nativ
 import Modal from "react-native-modal";
 import useSliderValue from '../../hooks/useSliderValue';
 import useCustomValue from '../../hooks/useCustomValue';
+import { useFonts } from "expo-font";
 
 const CustomValuePopup = () => {
     const [isModalVisible, setIsModalVisible] = React.useState(false);
@@ -14,13 +15,22 @@ const CustomValuePopup = () => {
     // object destructuring
     const { sliderValue, setSliderValue } = useSliderValue()
     const { customValue, setCustomValue } = useCustomValue()
+    
+    const [loaded] = useFonts({
+        Shrikhand: require('../../assets/fonts/Shrikhand-Regular.ttf')
+      })
+    
+      if (!loaded) {
+        return null;
+      }
 
     const SaveCustomValueClick = () => {
 
         setSliderValue(customValue);
         // Console is behind
-        console.log('Set Value:', sliderValue);
+        console.log('Set Value:' + sliderValue);
         setIsModalVisible(() => !isModalVisible);
+
     }
     return (
         <View style={styles.container}>
@@ -84,14 +94,13 @@ const styles = StyleSheet.create({
         height: 60,
         paddingTop: 13,
         borderRadius: 15,
-        backgroundColor: '#571A66',
-        color: "pink",
-        color: "#ffdeff",
+        backgroundColor: '#CD6FFE',
+        color: "#FFF",
     },
 
     CustomValueButtonText: {
         alignItems: 'center',
-        color: '#FFDEFF',
+        color: '#FFFFFF',
         fontSize: 25,
         paddingLeft: 5,
         paddingTop: 1,
@@ -99,7 +108,7 @@ const styles = StyleSheet.create({
 
     SaveModalButtonText: {
         alignItems: 'center',
-        color: '#FFDEFF',
+        color: '#FFFFFF',
         fontSize: 25,
         paddingLeft: 53,
         paddingTop: 1,
@@ -107,7 +116,7 @@ const styles = StyleSheet.create({
 
     SaveModal: {
         flex: 1,
-        backgroundColor: '#CD6FFE',
+        backgroundColor: '#571A66',
         marginTop: 200,
         marginBottom: 370,
         marginLeft: 35,
@@ -117,28 +126,29 @@ const styles = StyleSheet.create({
 
     PreferedValueText: {
         top: 30,
-        left: 40,
+        left: 5,
         alignItems: 'center',
-        color: '#FFDEFF',
+        color: '#CD6FFE',
+        fontFamily: 'Shrikhand',
         fontSize: 25,
         marginBottom: 15,
     },
 
     CustomValueButtonInput: {
-        top: 55,
+        top: 45,
         left: 30,
         marginLeft: 50,
         marginRight: 110,
-        color: '#56047C',
+        color: '#FFF',
         backgroundColor: 'FFF',
         fontSize: 25,
         borderWidth: 3,
-        borderColor: "#56047C",
+        borderColor: "#FFF",
         borderRadius: 10,
     },
 
     CancelValueButton: {
-        backgroundColor: "#571A66",
+        backgroundColor: '#CD6FFE',
         top: 85,
         left: 30,
         width: 100,
@@ -151,12 +161,12 @@ const styles = StyleSheet.create({
         width: 100,
         paddingLeft: 10,
         paddingTop: 10,
-        color: '#FFDEFF',
+        color: '#FFF',
         fontSize: 25,
     },
 
     SaveValueButton: {
-        backgroundColor: "#571A66",
+        backgroundColor: "#CD6FFE",
         top: 35,
         left: 175,
         height: 50,
@@ -170,7 +180,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingTop: 10,
         marginRight: 230,
-        color: '#FFDEFF',
+        color: '#FFF',
         fontSize: 25,
     },
 });

@@ -27,15 +27,15 @@ const Slidercomp = () => {
         <CircularProgress
           value={sliderValue}
           onAnimationComplete={HandleSliderChange}
-          inActiveStrokeColor={'#571A66'}
+          inActiveStrokeColor={'#DFA0FF'}
           activeStrokeWidth={30}
-          activeStrokeColor={'#FFDEFF'}
+          activeStrokeColor={'#FFFFFF'}
           inActiveStrokeWidth={30}
           inActiveStrokeOpacity={0.5}
           radius={120}
           maxValue={100}
           valueSuffix={'%'}
-          progressValueColor={'#FFDEFF'}
+          progressValueColor={'#FDF6FF'}
         />
       </View>
       <Text style={styles.FirmnessScaleText}> Firmness Scale </Text>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     top: 125,
     left: 73,
-    color: '#FFDEFF'
+    color: '#FFFFFF'
   },
 
   SaveButton: {
@@ -71,13 +71,13 @@ const styles = StyleSheet.create({
     paddingLeft: 53,
 
     borderRadius: 15,
-    backgroundColor: '#571A66',
+    backgroundColor: '#CD6FFE',
   },
 
   SaveButtonText: {
     // fontFamily: 'Shrikhand',
     fontSize: 25,
-    color: '#FFDEFF',
+    color: '#FFFFFF',
   },
 
   SliderValueText: {
