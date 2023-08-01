@@ -154,6 +154,7 @@ const styles = StyleSheet.create({
         width: 100,
         height: 50,
         borderRadius: 10,
+        zIndex: 1,
     },
 
     CancelValueText: {
@@ -163,6 +164,7 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         color: '#FFF',
         fontSize: 25,
+        zIndex: 0,
     },
 
     SaveValueButton: {
@@ -172,6 +174,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: 70,
         borderRadius: 10,
+        zIndex: 1
     },
 
     SaveValueText: {
@@ -182,6 +185,7 @@ const styles = StyleSheet.create({
         marginRight: 230,
         color: '#FFF',
         fontSize: 25,
+        zIndex: 0
     },
 });
 export default CustomValuePopup;
