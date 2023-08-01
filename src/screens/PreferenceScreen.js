@@ -25,31 +25,31 @@ const PreferenceScreen = () => {
             <View style={styles.SavedOptions}>
                 <TouchableOpacity style={styles.Option1}>
                     <Text style={styles.Option1Text}>
-                        Name                                       Number
+                        Home                                            75%
                     </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.Option2}>
                     <Text style={styles.Option2Text}>
-                        Name                                       Number
+                        Beverly Hils                                 50%
                     </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.Option3}>
                     <Text style={styles.Option3Text}>
-                        Name                                       Number
+                        Jose                                               25%
                     </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.Option4}>
                     <Text style={styles.Option4Text}>
-                        Name                                       Number
+                        Kalvin                                             99%
                     </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.Option5}>
                     <Text style={styles.Option5Text}>
-                        Name                                       Number
+                    Empty Value
                     </Text>
                 </TouchableOpacity>
             </View>
