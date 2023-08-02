@@ -6,7 +6,7 @@ import useCustomValue from '../../hooks/useCustomValue';
 import { useFonts } from "expo-font";
 
 const CustomValuePopup = (props) => {
-    const {setValue} = props
+    const { setValue } = props
     const [isModalVisible, setIsModalVisible] = React.useState(false);
 
     const handleModal = () => setIsModalVisible(() => !isModalVisible);
@@ -16,14 +16,14 @@ const CustomValuePopup = (props) => {
     // object destructuring
     const { sliderValue, setSliderValue } = useSliderValue()
     const { customValue, setCustomValue } = useCustomValue()
-    
+
     const [loaded] = useFonts({
         Shrikhand: require('../../assets/fonts/Shrikhand-Regular.ttf')
-      })
-    
-      if (!loaded) {
+    })
+
+    if (!loaded) {
         return null;
-      }
+    }
 
     const SaveCustomValueClick = () => {
 
@@ -50,7 +50,12 @@ const CustomValuePopup = (props) => {
                     <Text style={styles.PreferedValueText}>Enter Prefered Value</Text>
                     <TextInput
                         value={customValue}
-                        onChangeText={(text) => setCustomValue(text)}
+                        onChangeText={(text) => {
+                            if (isNaN(text))
+                            { setCustomValue(0)}
+                            else setCustomValue(text)
+                        }}
+                        keyboardType='numeric'
                         clearTextOnFocus
                         placeholder="Value"
                         style={styles.CustomValueButtonInput} >

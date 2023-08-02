@@ -22,7 +22,7 @@ const Slidercomp = (props) => {
     
     console.log('Slider Value:', sliderValue);
   }
-
+  
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.ProgressBar}>
