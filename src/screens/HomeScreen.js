@@ -1,5 +1,5 @@
 // Imports
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Text, Pressable, Image } from "react-native";
 import Slidercomp from "../components/Slider/Slider";
 import GradientComponentBG from "../components/PageComponents/BGGradient";
@@ -8,6 +8,7 @@ import PopupScreen from "../components/Slider/SavePopup";
 import LoadCustomPreference from "../components/Slider/CustomValuePopup";
 
 const HomeScreen = () => {
+  const [parentValue, setParentValue] = useState(50);
 
   const [loaded] = useFonts({
     Shrikhand: require('../assets/fonts/Shrikhand-Regular.ttf')
@@ -23,7 +24,7 @@ const HomeScreen = () => {
 
       {/* Progress Bar */}
       <View style={styles.Slidercomp}>
-        <Slidercomp />
+        <Slidercomp value={parentValue}/>
       </View>
 
       {/* Save button */}
@@ -33,7 +34,7 @@ const HomeScreen = () => {
       </View>
 
       {/* LoadCustomButton */}
-      <LoadCustomPreference />
+      <LoadCustomPreference setValue={setParentValue}/>
 
       {/* Line at Bottom */}
       <View style={styles.HomeScreenBottomLine}></View>

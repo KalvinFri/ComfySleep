@@ -5,7 +5,8 @@ import useSliderValue from '../../hooks/useSliderValue';
 import useCustomValue from '../../hooks/useCustomValue';
 import { useFonts } from "expo-font";
 
-const CustomValuePopup = () => {
+const CustomValuePopup = (props) => {
+    const {setValue} = props
     const [isModalVisible, setIsModalVisible] = React.useState(false);
 
     const handleModal = () => setIsModalVisible(() => !isModalVisible);
@@ -26,7 +27,7 @@ const CustomValuePopup = () => {
 
     const SaveCustomValueClick = () => {
 
-        setSliderValue(customValue);
+        setValue(customValue);
         // Console is behind
         console.log('Set Value:' + sliderValue);
         setIsModalVisible(() => !isModalVisible);
