@@ -5,7 +5,6 @@ import HorizontalLine from "../components/PageComponents/Line";
 import GradientComponentBG from "../components/PageComponents/BGGradient";
 import { useFonts } from "@expo-google-fonts/shrikhand";
 import axios from "axios";
-import { FlatList } from "react-native-web";
 
 const PreferenceScreen = () => {
 
@@ -39,7 +38,7 @@ const PreferenceScreen = () => {
              
             <View style={styles.SavedOptions}>
             <SafeAreaView style={styles.container}>
-                <FlatList>
+                <ScrollView style={styles.PreferenceList}>
                 {preferenceList?.map(preference=>
                
                     <TouchableOpacity style={styles.Options}>
@@ -50,7 +49,7 @@ const PreferenceScreen = () => {
                     </TouchableOpacity>
                 
                 )}
-            </FlatList>
+            </ScrollView>
             </SafeAreaView>
             </View>
             
@@ -82,14 +81,18 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '500',
         // Margin
-        marginTop: 200,
-        marginLeft: 20,
-        marginRight: 20,
-        marginBottom: 500,
+        top: 200,
+        left: 20,
+        right: 20,
+        marginBottom: 0,
+        height: 500,
         
     },
+PreferenceList: {
+contentSize: 20,
+},    
 
-    Options: {
+Options: {
         padding: 10,
         width: 350,
         height: 55,
