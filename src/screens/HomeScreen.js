@@ -6,9 +6,29 @@ import GradientComponentBG from "../components/PageComponents/BGGradient";
 import { useFonts } from "expo-font";
 import PopupScreen from "../components/Slider/SavePopup";
 import LoadCustomPreference from "../components/Slider/CustomValuePopup";
+import axios from "axios";
+import { TouchableOpacity } from "react-native-web";
+import useSliderValue from "../hooks/useSliderValue";
+
+// Axios
+const api = axios.create({
+  baseURL: `http://localhost:8080`
+});
+api.get('/preferences/data').then(res => {
+  setPreferenceList(res.data);
+});
+
+
+const SetSlidertoPreference = () => {
+  // const navigation = useNavigation();
+  setParentValue(preference.value)
+  navigation.navigate('Home');
+  
+}
 
 const HomeScreen = () => {
-  const [parentValue, setParentValue] = useState(50);
+  const { sliderValue } = useSliderValue()
+  const [parentValue, setParentValue] = useState(sliderValue);
 
   const [loaded] = useFonts({
     Shrikhand: require('../assets/fonts/Shrikhand-Regular.ttf')
@@ -20,6 +40,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
+      
       <Text style={styles.HomeText}> Home </Text>
 
       {/* Progress Bar */}
@@ -35,13 +56,11 @@ const HomeScreen = () => {
 
       {/* LoadCustomButton */}
       <LoadCustomPreference setValue={setParentValue}/>
-
       {/* Line at Bottom */}
       <View style={styles.HomeScreenBottomLine}></View>
 
       {/* Gradient */}
       <GradientComponentBG />
-
     </View >
   );
 }

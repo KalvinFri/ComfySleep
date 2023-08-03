@@ -14,15 +14,16 @@ import useSavedSliderValue from '../../hooks/useSavedSliderValue';
 
 
 const Slidercomp = (props) => {
- const {sliderValue, setSliderValue} = useSliderValue();
- const {savedValue, setSavedValue} = useSavedSliderValue();
- const [local, setLocal] = useState(sliderValue)
- const {value} = props
+  const { sliderValue, setSliderValue } = useSliderValue();
+  const { savedValue, setSavedValue } = useSavedSliderValue();
+  const [local, setLocal] = useState(sliderValue)
+  const { value } = props
+
   const HandleSliderChange = () => {
-    
+
     console.log('Slider Value:', sliderValue);
   }
-  
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.ProgressBar}>

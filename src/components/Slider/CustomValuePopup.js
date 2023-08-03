@@ -11,8 +11,6 @@ const CustomValuePopup = (props) => {
 
     const handleModal = () => setIsModalVisible(() => !isModalVisible);
 
-
-
     // object destructuring
     const { sliderValue, setSliderValue } = useSliderValue()
     const { customValue, setCustomValue } = useCustomValue()
