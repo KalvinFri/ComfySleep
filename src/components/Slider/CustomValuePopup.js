@@ -145,11 +145,10 @@ const styles = StyleSheet.create({
         left: 30,
         marginLeft: 50,
         marginRight: 110,
-        color: '#FFF',
-        backgroundColor: 'FFF',
+        color: '#FFFFFF',
         fontSize: 25,
         borderWidth: 3,
-        borderColor: "#FFF",
+        borderColor: "#FFFFFF",
         borderRadius: 10,
     },
 
@@ -189,7 +188,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingTop: 10,
         marginRight: 230,
-        color: '#FFF',
+        color: '#FFFFFF',
         fontSize: 25,
         zIndex: 0
     },

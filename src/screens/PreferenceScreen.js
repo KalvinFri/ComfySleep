@@ -1,9 +1,23 @@
-import { StyleSheet, View, Text, Pressable, Image, TouchableOpacity, Touchable } from "react-native";
+import { StyleSheet, View, Text, Pressable, Image, TouchableOpacity, Touchable, ScrollView, SafeAreaView, FlatList} from "react-native";
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import HorizontalLine from "../components/PageComponents/Line";
 import GradientComponentBG from "../components/PageComponents/BGGradient";
 import { useFonts } from "@expo-google-fonts/shrikhand";
+import axios from "axios";
+import { FlatList } from "react-native-web";
+
 const PreferenceScreen = () => {
+
+    const api = axios.create({
+        baseURL: `http://localhost:8080`
+    })
+
+    let [preferenceList, setPreferenceList ] = useState();
+
+    api.get('/preferences/data').then(res =>{
+        setPreferenceList(res.data);
+    })
 
     const [loaded] = useFonts({
         Shrikhand: require('../assets/fonts/Shrikhand-Regular.ttf')
@@ -22,55 +36,35 @@ const PreferenceScreen = () => {
             </View>
 
             {/* List Of Text */}
+             
             <View style={styles.SavedOptions}>
-                <TouchableOpacity style={styles.Option1}>
-                    <Text style={styles.Option1Text}>
-                        Home                                            75%
-                    </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.Option2}>
-                    <Text style={styles.Option2Text}>
-                        Beverly Hils                                 50%
-                    </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.Option3}>
-                    <Text style={styles.Option3Text}>
-                        Jose                                               25%
-                    </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.Option4}>
-                    <Text style={styles.Option4Text}>
-                        Kalvin                                             99%
-                    </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.Option5}>
-                    <Text style={styles.Option5Text}>
-                    Empty Value
-                    </Text>
-                </TouchableOpacity>
+            <SafeAreaView style={styles.container}>
+                <FlatList>
+                {preferenceList?.map(preference=>
+               
+                    <TouchableOpacity style={styles.Options}>
+                        <View style={styles.OptionsText}>
+                        <Text style={styles.Option}>{preference.name}</Text>
+                        <Text style={styles.Option}>{preference.value}</Text>
+                        </View> 
+                    </TouchableOpacity>
+                
+                )}
+            </FlatList>
+            </SafeAreaView>
             </View>
+            
+
             <GradientComponentBG />
         </View>
-
-        // Fix so i can show more numbers
 
     )
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        padding: 20,
-        justifyContent: 'center',
-    },
-    container1: {
-        // backgroundColor: '#baedfd',
-    },
-
+        flexGrow: 1,
+      },
     // Buttons
     SaveText: {
         fontSize: 25,
@@ -92,19 +86,29 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         marginRight: 20,
         marginBottom: 500,
+        
     },
 
-    Option1: {
-        paddingTop: 15,
-        paddingLeft: 20,
+    Options: {
+        padding: 10,
         width: 350,
         height: 55,
         gap: 10,
         borderRadius: 15,
         backgroundColor: '#CD6FFE',
+        marginBottom: 30,
+        flex: 1,
+        flexDirection: 'row', // To arrange the elements horizontally
+        justifyContent: 'space-between', // To add space between the elements
     },
 
-    Option1Text: {
+    OptionsText: {
+        flex: 1,
+        flexDirection: 'row', // To arrange the elements horizontally
+        justifyContent: 'space-between', // To add space between the elements
+        alignItems: 'center', // To center the elements vertically
+    },
+    Option: {
         // Font
         color: '#FFF',
         fontSize: 20,
@@ -112,82 +116,8 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
 
-    Option2: {
-        paddingTop: 15,
-        paddingLeft: 20,
-        width: 350,
-        height: 55,
-        gap: 10,
-        backgroundColor: '#CD6FFE',
-        marginTop: 25,
-        borderRadius: 15,
-    },
-
-    Option2Text: {
-        // Font
-        color: '#FFF',
-        fontSize: 20,
-        fontStyle: 'normal',
-        fontWeight: '500',
-    },
-
-    Option3: {
-        display: 'flex',
-        paddingTop: 15,
-        paddingLeft: 20,
-        width: 350,
-        height: 55,
-        gap: 10,
-        borderRadius: 15,
-        backgroundColor: '#CD6FFE',
-        marginTop: 25,
-    },
-
-    Option3Text: {
-        // Font
-        color: '#FFF',
-        fontSize: 20,
-        fontStyle: 'normal',
-        fontWeight: '500',
-    },
-
-    Option4: {
-        paddingTop: 15,
-        paddingLeft: 20,
-        width: 350,
-        height: 55,
-        gap: 10,
-        backgroundColor: '#CD6FFE',
-        marginTop: 25,
-        borderRadius: 15,
-    },
-
-    Option4Text: {
-        // Font
-        color: '#FFF',
-        fontSize: 20,
-        fontStyle: 'normal',
-        fontWeight: '500',
-    },
-
-    Option5: {
-        paddingTop: 15,
-        paddingLeft: 20,
-        width: 350,
-        height: 55,
-        gap: 10,
-        backgroundColor: '#CD6FFE',
-        marginTop: 25,
-        borderRadius: 15,
-    },
-
-    Option5Text: {
-        // Font
-        color: '#FFF',
-        fontSize: 20,
-        fontStyle: 'normal',
-        fontWeight: '500',
-    },
 });
 
 export default PreferenceScreen;
+
+// display inline vs display block
