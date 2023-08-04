@@ -7,7 +7,7 @@ import { useFonts } from "@expo-google-fonts/shrikhand";
 import axios from "axios";
 
 const PreferenceScreen = () => {
-// Axios
+    // Axios
     const api = axios.create({
         baseURL: `http://localhost:8080`
     })
@@ -23,15 +23,14 @@ const PreferenceScreen = () => {
     const [loaded] = useFonts({
         Shrikhand: require('../assets/fonts/Shrikhand-Regular.ttf')
     })
-
     if (!loaded) {
         return null;
     }
 
 
-     const SetSlidertoPreferencePress = () => {
-        
-     }
+    const SetSlidertoPreferencePress = () => {
+
+    }
 
 
     return (

@@ -12,12 +12,12 @@ import useSliderValue from "../hooks/useSliderValue";
 import useSavedSliderValue from "../hooks/useSavedSliderValue";
 
 // Axios
-const api = axios.create({
-  baseURL: `http://localhost:8080`
-});
-api.get('/preferences/data').then(res => {
-  setPreferenceList(res.data);
-});
+// const api = axios.create({
+//   baseURL: `http://localhost:8080`
+// });
+// api.get('/preferences/data').then(res => {
+//   setPreferenceList(res.data);
+// });
 
 
 const SetSlidertoPreference = () => {
@@ -29,7 +29,7 @@ const SetSlidertoPreference = () => {
 
 const HomeScreen = () => {
   const { sliderValue } = useSliderValue()
-  const { savedSliderValue, setSavedSliderValue } = useSavedSliderValue()
+  const { savedSliderValue, setSavedSliderValue } = useSavedSliderValue(null)
   const [parentValue, setParentValue] = useState(sliderValue);
 
   const [loaded] = useFonts({
@@ -53,13 +53,13 @@ const HomeScreen = () => {
       {/* Save button */}
       <View style={styles.PopupScreenSliderButton}>
 
-        <PopupScreen setValue={setSavedSliderValue} value={parentValue}/>
+        <PopupScreen setValue={setParentValue} value={parentValue}/>
       </View>
 
       {/* LoadCustomButton */}
       <CustomValuePopup setValue={setParentValue} value={parentValue}/>
       {/* Line at Bottom */}
-      <View style={styles.HomeScreenBottomLine}></View>
+      <View style={styles.HomeScreenBottomLine} />
 
       {/* Gradient */}
       <GradientComponentBG />

@@ -6,6 +6,7 @@ import Slidercomp from "./Slider";
 import HorizontalLine from "../PageComponents/Line";
 import useSliderValue from '../../hooks/useSliderValue';
 import useSavedSliderValue from '../../hooks/useSavedSliderValue';
+import axios from 'axios';
 
 
 export const PopupScreen = (props) => {
@@ -19,13 +20,32 @@ export const PopupScreen = (props) => {
     const { sliderValue } = useSliderValue()
     const { savedSliderValue, setSavedSliderValue } = useSavedSliderValue()
 
-    const SavePreferenceClick = () => {
-        setValue(sliderValue);
-        console.log('Saved Value:' + value );
-        setIsModalVisible(() => !isModalVisible);
+
+      // Form Stuff
+      const [formData, setFormData] = useState({
+        name: "",
+        value: value,
+    })
+
+    const handleSubmit = (e) => {
+        //e.preventDefault()
+        axios.post("http://localhost:8080/preferences/create", formData).then((res) => {
+            console.log(res.status, res.data);
+        });
+        setFormData({
+            name: "",
+            value: value,
+        })
+        //alert("Saved Preference!");
     }
 
-
+    const SavePreferenceClick = () => {
+        setValue(sliderValue);
+        useEffect(() => {
+            console.log('Value Updated:', value);
+          }, [value]);
+        setIsModalVisible(() => !isModalVisible);
+    }
 
     return (
         <View style={styles.container}>
@@ -44,15 +64,18 @@ export const PopupScreen = (props) => {
                     <Text style={styles.CurrentStateText}>Current Value: {value}  </Text>
                     <Text style={styles.EnterNameText}>Enter Name</Text>
                     <HorizontalLine style={styles.HorizontalLine1} />
-                    <TextInput clearTextOnFocus style={styles.SaveButtonInput} >
-                        <Text>
-                            Name
-                        </Text>
+
+                    {/* Form stuff */}
+                    <TextInput 
+                    clearTextOnFocus
+                    style={styles.SaveButtonInput}
+                    onChangeText={(text) => setFormData({ ...formData, name: text })} value={formData.name} type="text" name="name" id="name" 
+                    >
                     </TextInput>
                     <TouchableOpacity onPress={handleModal} style={styles.CancelModalButton}>
                         <Text style={styles.CancelModalText}>Cancel</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={SavePreferenceClick} style={styles.SaveModalButton}>
+                    <TouchableOpacity onPress={()=>{SavePreferenceClick; handleSubmit()}} style={styles.SaveModalButton}>
                         <Text style={styles.SaveModalText}>Save</Text>
                     </TouchableOpacity>
                 </View>

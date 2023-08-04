@@ -4,6 +4,7 @@ import Modal from "react-native-modal";
 import useSliderValue from '../../hooks/useSliderValue';
 import useCustomValue from '../../hooks/useCustomValue';
 import { useFonts } from "expo-font";
+import axios from 'axios';
 
 const CustomValuePopup = (props) => {
     const { value } = props
@@ -16,6 +17,7 @@ const CustomValuePopup = (props) => {
     const { sliderValue, setSliderValue } = useSliderValue()
     const { customValue, setCustomValue } = useCustomValue()
 
+    // Fonts
     const [loaded] = useFonts({
         Shrikhand: require('../../assets/fonts/Shrikhand-Regular.ttf')
     })
@@ -24,8 +26,8 @@ const CustomValuePopup = (props) => {
         return null;
     }
 
-    const SaveCustomValueClick = () => {
 
+    const SaveCustomValueClick = () => {
         setValue(customValue);
         // Console is behind
         console.log('Set Value:' + value);
@@ -50,8 +52,7 @@ const CustomValuePopup = (props) => {
                     <TextInput
                         value={customValue}
                         onChangeText={(text) => {
-                            if (isNaN(text))
-                            { setCustomValue(0)}
+                            if (isNaN(text)) { setCustomValue(0) }
                             else setCustomValue(text)
                         }}
                         keyboardType='numeric'
@@ -66,11 +67,6 @@ const CustomValuePopup = (props) => {
                     <TouchableOpacity onPress={SaveCustomValueClick} style={styles.SaveValueButton}>
                         <Text style={styles.SaveValueText}>Save</Text>
                     </TouchableOpacity>
-
-
-                    <Text style={styles.cool}>{sliderValue}</Text>
-
-
                 </View>
             </Modal>
         </View>
