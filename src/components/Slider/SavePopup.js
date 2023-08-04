@@ -8,7 +8,9 @@ import useSliderValue from '../../hooks/useSliderValue';
 import useSavedSliderValue from '../../hooks/useSavedSliderValue';
 
 
-export const PopupScreen = () => {
+export const PopupScreen = (props) => {
+    const { value } = props
+    const { setValue } = props
     const [isModalVisible, setIsModalVisible] = React.useState(false);
 
     const handleModal = () => setIsModalVisible(() => !isModalVisible);
@@ -19,9 +21,9 @@ export const PopupScreen = () => {
 
     const SavePreferenceClick = () => {
 
-        setSavedSliderValue(sliderValue);
+        setValue(sliderValue);
         // Console is behind
-        console.log('Saved Value:', savedSliderValue);
+        console.log('Saved Value:', value );
         setIsModalVisible(() => !isModalVisible);
     }
 
@@ -41,7 +43,7 @@ export const PopupScreen = () => {
             >
 
                 <View style={styles.SaveModal}>
-                    <Text style={styles.CurrentStateText}>Current Value: {sliderValue}  </Text>
+                    <Text style={styles.CurrentStateText}>Current Value: {value}  </Text>
                     <Text style={styles.EnterNameText}>Enter Name</Text>
                     <HorizontalLine style={styles.HorizontalLine1} />
                     <TextInput clearTextOnFocus style={styles.SaveButtonInput} >

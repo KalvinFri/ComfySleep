@@ -12,7 +12,8 @@ import CustomValuePopup from './CustomValuePopup';
 import useSavedSliderValue from '../../hooks/useSavedSliderValue';
 
 
-
+// ehy dont u use useHooks? 
+//wait so-- u guys are trying to get values from childComponnet to paret=ntCompomen? 
 const Slidercomp = (props) => {
   const { sliderValue, setSliderValue } = useSliderValue();
   const { savedValue, setSavedValue } = useSavedSliderValue();

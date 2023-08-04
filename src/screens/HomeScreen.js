@@ -5,7 +5,7 @@ import Slidercomp from "../components/Slider/Slider";
 import GradientComponentBG from "../components/PageComponents/BGGradient";
 import { useFonts } from "expo-font";
 import PopupScreen from "../components/Slider/SavePopup";
-import LoadCustomPreference from "../components/Slider/CustomValuePopup";
+import CustomValuePopup from "../components/Slider/CustomValuePopup";
 import axios from "axios";
 import { TouchableOpacity } from "react-native-web";
 import useSliderValue from "../hooks/useSliderValue";
@@ -51,11 +51,11 @@ const HomeScreen = () => {
       {/* Save button */}
       <View style={styles.PopupScreenSliderButton}>
 
-        <PopupScreen />
+        <PopupScreen setValue={setParentValue} value={parentValue}/>
       </View>
 
       {/* LoadCustomButton */}
-      <LoadCustomPreference setValue={setParentValue}/>
+      <CustomValuePopup setValue={setParentValue}/>
       {/* Line at Bottom */}
       <View style={styles.HomeScreenBottomLine}></View>
 
