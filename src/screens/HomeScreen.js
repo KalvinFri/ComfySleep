@@ -9,6 +9,7 @@ import CustomValuePopup from "../components/Slider/CustomValuePopup";
 import axios from "axios";
 import { TouchableOpacity } from "react-native-web";
 import useSliderValue from "../hooks/useSliderValue";
+import useSavedSliderValue from "../hooks/useSavedSliderValue";
 
 // Axios
 const api = axios.create({
@@ -28,6 +29,7 @@ const SetSlidertoPreference = () => {
 
 const HomeScreen = () => {
   const { sliderValue } = useSliderValue()
+  const { savedSliderValue, setSavedSliderValue } = useSavedSliderValue()
   const [parentValue, setParentValue] = useState(sliderValue);
 
   const [loaded] = useFonts({
@@ -51,7 +53,7 @@ const HomeScreen = () => {
       {/* Save button */}
       <View style={styles.PopupScreenSliderButton}>
 
-        <PopupScreen setValue={setParentValue} value={parentValue}/>
+        <PopupScreen setValue={setSavedSliderValue} value={parentValue}/>
       </View>
 
       {/* LoadCustomButton */}
