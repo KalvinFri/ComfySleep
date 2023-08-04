@@ -57,7 +57,7 @@ const HomeScreen = () => {
       </View>
 
       {/* LoadCustomButton */}
-      <CustomValuePopup setValue={setParentValue}/>
+      <CustomValuePopup setValue={setParentValue} value={parentValue}/>
       {/* Line at Bottom */}
       <View style={styles.HomeScreenBottomLine}></View>
 

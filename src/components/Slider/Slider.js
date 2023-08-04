@@ -21,8 +21,7 @@ const Slidercomp = (props) => {
   const { value } = props
 
   const HandleSliderChange = () => {
-
-    console.log('Slider Value:', sliderValue);
+    console.log('Slider Value:', value);
   }
 
   return (

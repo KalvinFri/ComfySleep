@@ -22,7 +22,6 @@ export const PopupScreen = (props) => {
     const SavePreferenceClick = () => {
 
         setValue(sliderValue);
-        // Console is behind
         console.log('Saved Value:', value );
         setIsModalVisible(() => !isModalVisible);
     }

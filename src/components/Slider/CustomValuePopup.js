@@ -6,6 +6,7 @@ import useCustomValue from '../../hooks/useCustomValue';
 import { useFonts } from "expo-font";
 
 const CustomValuePopup = (props) => {
+    const { value } = props
     const { setValue } = props
     const [isModalVisible, setIsModalVisible] = React.useState(false);
 
@@ -27,7 +28,7 @@ const CustomValuePopup = (props) => {
 
         setValue(customValue);
         // Console is behind
-        console.log('Set Value:' + sliderValue);
+        console.log('Set Value:', value);
         setIsModalVisible(() => !isModalVisible);
 
     }
