@@ -28,7 +28,8 @@ const Slidercomp = (props) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.ProgressBar}>
         <CircularProgress
-          value={value}
+          value={40}
+          title={value + "%"}
           onAnimationComplete={HandleSliderChange}
           inActiveStrokeColor={'#DFA0FF'}
           activeStrokeWidth={30}

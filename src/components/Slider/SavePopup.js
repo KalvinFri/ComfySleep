@@ -52,14 +52,6 @@ export const PopupScreen = (props) => {
 
 
     const test = async() => {
-
-        // setValue(sliderValue);
-        console.log('Value Updated:', value);
-        setFormData({
-            name: "",
-            value: value,
-        });
-        console.log('Value Updated#2:', formData);
         axios.post("http://localhost:8080/preferences/create", formData).then((res) => {
             console.log(res.status, res.data);
         });

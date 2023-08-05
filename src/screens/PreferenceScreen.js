@@ -29,7 +29,7 @@ const PreferenceScreen = () => {
 
 
     const SetSlidertoPreferencePress = () => {
-
+        setSliderValue(this.value)
     }
 
 
