@@ -53,7 +53,7 @@ const HomeScreen = () => {
       {/* Save button */}
       <View style={styles.PopupScreenSliderButton}>
 
-        <PopupScreen setValue={setParentValue} value={parentValue}/>
+        <PopupScreen setValue={setSavedSliderValue} value={parentValue}/>
       </View>
 
       {/* LoadCustomButton */}

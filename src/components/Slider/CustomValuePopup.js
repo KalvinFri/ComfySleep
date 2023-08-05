@@ -29,8 +29,7 @@ const CustomValuePopup = (props) => {
 
     const SaveCustomValueClick = () => {
         setValue(customValue);
-        // Console is behind
-        console.log('Set Value:' + value);
+        console.log('Set Value:' + customValue);
         setIsModalVisible(() => !isModalVisible);
 
     }

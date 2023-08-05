@@ -17,17 +17,22 @@ export const PopupScreen = (props) => {
     const handleModal = () => setIsModalVisible(() => !isModalVisible);
 
     // object destructuring
-    const { sliderValue } = useSliderValue()
+    // const { sliderValue } = useSliderValue()
     const { savedSliderValue, setSavedSliderValue } = useSavedSliderValue()
 
 
-      // Form Stuff
-      const [formData, setFormData] = useState({
+    // Form Stuff
+    const [formData, setFormData] = useState({
         name: "",
         value: value,
     })
 
     const handleSubmit = (e) => {
+        setFormData({
+            name: "",
+            value: value,
+        });
+        console.log("Form data before push\n", value)
         //e.preventDefault()
         axios.post("http://localhost:8080/preferences/create", formData).then((res) => {
             console.log(res.status, res.data);
@@ -35,15 +40,34 @@ export const PopupScreen = (props) => {
         setFormData({
             name: "",
             value: value,
-        })
+        });
         //alert("Saved Preference!");
     }
 
     const SavePreferenceClick = () => {
-        setValue(sliderValue);
-        useEffect(() => {
-            console.log('Value Updated:', value);
-          }, [value]);
+        // setValue(sliderValue);
+        console.log('Value Updated:', value);
+        setIsModalVisible(() => !isModalVisible);
+    }
+
+
+    const test = async() => {
+
+        // setValue(sliderValue);
+        console.log('Value Updated:', value);
+        setFormData({
+            name: "",
+            value: value,
+        });
+        console.log('Value Updated#2:', formData);
+        axios.post("http://localhost:8080/preferences/create", formData).then((res) => {
+            console.log(res.status, res.data);
+        });
+        setFormData({
+            name: "",
+            value: value,
+        });
+
         setIsModalVisible(() => !isModalVisible);
     }
 
@@ -66,16 +90,14 @@ export const PopupScreen = (props) => {
                     <HorizontalLine style={styles.HorizontalLine1} />
 
                     {/* Form stuff */}
-                    <TextInput 
-                    clearTextOnFocus
-                    style={styles.SaveButtonInput}
-                    onChangeText={(text) => setFormData({ ...formData, name: text })} value={formData.name} type="text" name="name" id="name" 
-                    >
-                    </TextInput>
-                    <TouchableOpacity onPress={handleModal} style={styles.CancelModalButton}>
+                    <TextInput
+                        clearTextOnFocus
+                        style={styles.SaveButtonInput}
+                        onChangeText={(text) => setFormData({ ...formData, name: text, value: value })} value={formData.name} type="text" name="name" id="name" />
+                    <TouchableOpacity onPress={handleModal} style={styles.CancelModalButton} >
                         <Text style={styles.CancelModalText}>Cancel</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{SavePreferenceClick; handleSubmit()}} style={styles.SaveModalButton}>
+                    <TouchableOpacity onPress={test} style={styles.SaveModalButton}>
                         <Text style={styles.SaveModalText}>Save</Text>
                     </TouchableOpacity>
                 </View>

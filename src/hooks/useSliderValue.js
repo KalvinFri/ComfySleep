@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export default function useSliderValue() {
-    const [sliderValue, setSliderValue] = useState(1)
+    const [sliderValue, setSliderValue] = useState(0)
 
     return{ sliderValue, setSliderValue };
 }
