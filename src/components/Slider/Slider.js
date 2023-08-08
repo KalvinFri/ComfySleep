@@ -19,6 +19,7 @@ const Slidercomp = (props) => {
   const { savedValue, setSavedValue } = useSavedSliderValue();
   const [local, setLocal] = useState(sliderValue)
   const { value } = props
+  const { realValue } = props
 
   const HandleSliderChange = () => {
     console.log('Slider Value:' + value);
@@ -28,7 +29,7 @@ const Slidercomp = (props) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.ProgressBar}>
         <CircularProgress
-          value={40}
+          value={realValue}
           title={value + "%"}
           onAnimationComplete={HandleSliderChange}
           inActiveStrokeColor={'#DFA0FF'}

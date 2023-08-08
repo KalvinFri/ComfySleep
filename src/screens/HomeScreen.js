@@ -9,30 +9,34 @@ import CustomValuePopup from "../components/Slider/CustomValuePopup";
 import axios from "axios";
 import useSliderValue from "../hooks/useSliderValue";
 import useSavedSliderValue from "../hooks/useSavedSliderValue";
-
-
-
+import PreferenceScreen from "./PreferenceScreen";
 
 
 const HomeScreen = () => {
+  // Settings usestates
   const { sliderValue } = useSliderValue()
+  // holder variable to temp store the saved value before transfering it.
   const { savedSliderValue, setSavedSliderValue } = useSavedSliderValue(null)
+  // This is the variable for the slider value
   const [parentValue, setParentValue] = useState(sliderValue);
+  // Actual mattress value
+  const [mattressValue, setMattressValue] = useState(0)
 
 
   // Axios
   const [stiffness, setStiffness] = useState({})
   const api = axios.create({
-    baseURL: `http://192.168.1.167`
+    baseURL: `http://172.20.10.14/`
   });
   api.get('/flex').then(res => {
     setStiffness(res.data);
     console.log(stiffness);
   });
 
+  // Turns the mattress on after button click
   const TurnMattressOn = () => {
     const api = axios.create({
-      baseURL: `http://192.168.1.167`
+      baseURL: `http://172.20.10.14/`
     });
     api.get('/on').then(res => {
       setStiffness(res.data);
@@ -40,9 +44,10 @@ const HomeScreen = () => {
     });
   }
 
+  // Turns the mattress off after button click
   const TurnMattressOff = () => {
     const api = axios.create({
-      baseURL: `http://192.168.1.167`
+      baseURL: `http://172.20.10.14/`
     });
     api.get('/off').then(res => {
       setStiffness(res.data);
@@ -50,7 +55,16 @@ const HomeScreen = () => {
     });
   }
 
-
+  const SetSlidertoPreferencePress = () => { 
+    // navigation.navigate("Home");
+    const api = axios.create({
+        baseURL: `http://172.20.10.14/`
+      });
+      api.get('/on50').then(res => {
+        setStiffness(res.data);
+        console.log(stiffness);
+      });
+} 
 
   const [loaded] = useFonts({
     Shrikhand: require('../assets/fonts/Shrikhand-Regular.ttf')
@@ -60,6 +74,7 @@ const HomeScreen = () => {
     return null;
   }
 
+
   return (
     <View style={styles.container}>
 
@@ -67,18 +82,18 @@ const HomeScreen = () => {
 
       {/* Progress Bar */}
       <View style={styles.Slidercomp}>
-        <Slidercomp value={parentValue} />
+        <Slidercomp value={parentValue} realValue={mattressValue} />
       </View>
 
       {/* Save button */}
       <View style={styles.PopupScreenSliderButton}>
-
         <PopupScreen setValue={setSavedSliderValue} value={parentValue} />
       </View>
 
       {/* LoadCustomButton */}
       <CustomValuePopup setValue={setParentValue} value={parentValue} />
 
+      {/* Buttons for turning mattress on and off */}
       <View>
         <TouchableOpacity onPress={TurnMattressOn} style={styles.OnButton}>
           <Text style={styles.OnButtonText}>On</Text>
@@ -91,9 +106,12 @@ const HomeScreen = () => {
       {/* Line at Bottom */}
       <View style={styles.HomeScreenBottomLine}></View>
 
-
+      <TouchableOpacity onPress={SetSlidertoPreferencePress}>
+          <Text>TEST</Text>
+        </TouchableOpacity>
       {/* Gradient */}
       <GradientComponentBG />
+
     </View >
   );
 }
@@ -135,10 +153,10 @@ const styles = StyleSheet.create({
 
   OnButtonText: {
     alignItems: 'center',
-        color: '#FFFFFF',
-        fontSize: 25,
-        paddingLeft: 60,
-        paddingTop: 1,
+    color: '#FFFFFF',
+    fontSize: 25,
+    paddingLeft: 60,
+    paddingTop: 1,
   },
 
   OffButton: {
@@ -155,10 +173,10 @@ const styles = StyleSheet.create({
 
   OffButtonText: {
     alignItems: 'center',
-        color: '#FFFFFF',
-        fontSize: 25,
-        paddingLeft: 60,
-        paddingTop: 1,
+    color: '#FFFFFF',
+    fontSize: 25,
+    paddingLeft: 60,
+    paddingTop: 1,
   },
 });
 

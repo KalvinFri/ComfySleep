@@ -6,12 +6,17 @@ import GradientComponentBG from "../components/PageComponents/BGGradient";
 import { useFonts } from "@expo-google-fonts/shrikhand";
 import axios from "axios";
 
-const PreferenceScreen = () => {
+
+
+const PreferenceScreen = (props) => {
+    
+    const navigation = useNavigation();
+
     // Axios
     const api = axios.create({
         baseURL: `http://localhost:8080`
     })
-    // Variables
+    // Variables for the lists
     let [preferenceList, setPreferenceList] = useState();
 
     // Axios
@@ -27,10 +32,20 @@ const PreferenceScreen = () => {
         return null;
     }
 
+    const { value } = props
+    const { setValue } = props
 
-    const SetSlidertoPreferencePress = () => {
-        setSliderValue(this.value)
-    }
+
+    const SetSlidertoPreferencePress = () => { 
+        navigation.navigate("Home");
+        const api = axios.create({
+            baseURL: `http://172.20.10.14/`
+          });
+          api.get('/on90').then(res => {
+            setStiffness(res.data);
+            console.log(stiffness);
+          });
+    } 
 
 
     return (
@@ -47,8 +62,7 @@ const PreferenceScreen = () => {
                 <SafeAreaView style={styles.container}>
                     <ScrollView style={styles.PreferenceList}>
                         {preferenceList?.map(preference =>
-
-                            <TouchableOpacity style={styles.Options} onPress={SetSlidertoPreferencePress}>
+                            <TouchableOpacity style={styles.Options} onPress={() => SetSlidertoPreferencePress(preference.value)}>
                                 <View style={styles.OptionsText}>
                                     <Text style={styles.Option}>{preference.name}</Text>
                                     <Text style={styles.Option}>{preference.value}</Text>
@@ -128,5 +142,3 @@ const styles = StyleSheet.create({
 });
 
 export default PreferenceScreen;
-
-// display inline vs display block
