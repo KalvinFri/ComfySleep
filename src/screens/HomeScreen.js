@@ -26,7 +26,7 @@ const HomeScreen = () => {
   // Axios
   const [stiffness, setStiffness] = useState({})
   const api = axios.create({
-    baseURL: `http://172.20.10.14/`
+    baseURL: `http://172.20.10.3/`
   });
   api.get('/flex').then(res => {
     setStiffness(res.data);
@@ -36,7 +36,7 @@ const HomeScreen = () => {
   // Turns the mattress on after button click
   const TurnMattressOn = () => {
     const api = axios.create({
-      baseURL: `http://172.20.10.14/`
+      baseURL: `http://172.20.10.3/`
     });
     api.get('/on').then(res => {
       setStiffness(res.data);
@@ -47,7 +47,7 @@ const HomeScreen = () => {
   // Turns the mattress off after button click
   const TurnMattressOff = () => {
     const api = axios.create({
-      baseURL: `http://172.20.10.14/`
+      baseURL: `http://172.20.10.3/`
     });
     api.get('/off').then(res => {
       setStiffness(res.data);
@@ -57,10 +57,11 @@ const HomeScreen = () => {
 
   const SetSlidertoPreferencePress = () => { 
     // navigation.navigate("Home");
+    console.log("Turned mattress on to 90")
     const api = axios.create({
-        baseURL: `http://172.20.10.14/`
+        baseURL: `http://172.20.10.3/`
       });
-      api.get('/on50').then(res => {
+      api.get('/on90').then(res => {
         setStiffness(res.data);
         console.log(stiffness);
       });
@@ -74,6 +75,14 @@ const HomeScreen = () => {
     return null;
   }
 
+
+  const UpdateSliderNumber = async () => {
+    for(let i = 0; i < 90; i++){
+      setTimeout(() => {
+        setMattressValue(prevValue => prevValue + 1);
+      }, i * 1450);
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -91,7 +100,7 @@ const HomeScreen = () => {
       </View>
 
       {/* LoadCustomButton */}
-      <CustomValuePopup setValue={setParentValue} value={parentValue} />
+      {/* <CustomValuePopup setValue={setParentValue} value={parentValue} /> */}
 
       {/* Buttons for turning mattress on and off */}
       <View>
@@ -106,8 +115,8 @@ const HomeScreen = () => {
       {/* Line at Bottom */}
       <View style={styles.HomeScreenBottomLine}></View>
 
-      <TouchableOpacity onPress={SetSlidertoPreferencePress}>
-          <Text>TEST</Text>
+      <TouchableOpacity onPress={UpdateSliderNumber}>
+          <Text style={styles.Cool}>l</Text>
         </TouchableOpacity>
       {/* Gradient */}
       <GradientComponentBG />
@@ -120,6 +129,10 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     // backgroundColor: '#baedfd',
+  },
+
+  Cool: {
+    color: "#691A66",
   },
 
   HomeText: {

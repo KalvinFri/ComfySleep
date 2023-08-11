@@ -30,7 +30,7 @@ const Slidercomp = (props) => {
       <View style={styles.ProgressBar}>
         <CircularProgress
           value={realValue}
-          title={value + "%"}
+          title={90 + "%"}
           onAnimationComplete={HandleSliderChange}
           inActiveStrokeColor={'#DFA0FF'}
           activeStrokeWidth={30}

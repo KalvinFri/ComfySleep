@@ -5,7 +5,7 @@ import HorizontalLine from "../components/PageComponents/Line";
 import GradientComponentBG from "../components/PageComponents/BGGradient";
 import { useFonts } from "@expo-google-fonts/shrikhand";
 import axios from "axios";
-
+import HomeScreen from "./HomeScreen";
 
 
 const PreferenceScreen = (props) => {
@@ -39,7 +39,7 @@ const PreferenceScreen = (props) => {
     const SetSlidertoPreferencePress = () => { 
         navigation.navigate("Home");
         const api = axios.create({
-            baseURL: `http://172.20.10.14/`
+            baseURL: `http://172.20.10.3/`
           });
           api.get('/on90').then(res => {
             setStiffness(res.data);
